@@ -1,0 +1,15 @@
+div:has(.toc) {
+    height: fit-content;
+}
+
+.navbar {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.navbar-center {
+    align-items: stretch;
+    display: flex;
+    justify-content: center;
+}

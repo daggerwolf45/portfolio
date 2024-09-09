@@ -5,28 +5,51 @@ from starlette.responses import HTMLResponse
 from starlette.templating import Jinja2Templates, _TemplateResponse
 
 from app.config import conf
+from app.md import RenderedMarkdown
 
 page_router = APIRouter()
 
 template_dir = conf.script_directory / "resources" / "templates"
+blog_dir = conf.script_directory / "resources" / "blog"
+
 templates = Jinja2Templates(directory=template_dir)
-def template_response(request:Request, name:str, *, process_name=True, **kw) -> _TemplateResponse:
-    if process_name and not name.endswith('.jinja2'):
-        if name.endswith('.html'):
-            name = f'{name}.jinja2'
+async def template_response(request: Request, path:str, *, process_name=True, **kw) -> _TemplateResponse:
+    if process_name and not path.endswith('.jinja2'):
+        if path.endswith('.html'):
+            path = f'{path}.jinja2'
         else:
-            name = f'{name}.html.jinja2'
+            path = f'{path}.html.jinja2'
 
     context = kw
     try:
-        return templates.TemplateResponse(request=request, name=name, context=context)
+        return templates.TemplateResponse(request=request, name=path, context=context)
     except TemplateNotFound as e:
         raise e
+
+
+async def blog_response(request: Request,  markdown: RenderedMarkdown, **kw) -> _TemplateResponse:
+
+    return await template_response(
+          request,
+          "blog_base",
+          md_content=markdown.html,
+          md_toc=markdown.toc,
+          **markdown.meta.__dict__,
+          **kw
+    )
+
 
 # Routes
 @page_router.get('/', response_class=HTMLResponse)
 async def index(request: Request):
-    return template_response(request=request, name="index", title="HeyHey", ptext="Hello World!")
+    return await template_response(request, "index", title="Sam Laird", ptext="Hello World!")
 
 
+@page_router.get('/blog/{blog_id}', response_class=HTMLResponse)
+async def get_blog(request: Request, blog_id: str):
+    blog_path = blog_dir / (blog_id.lower() + ".md")
+
+    markdown = RenderedMarkdown(path=blog_path)
+
+    return await blog_response(request, markdown)
 

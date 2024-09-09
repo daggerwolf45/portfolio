@@ -1,0 +1,28 @@
+{% extends "std.html.jinja2" %}
+{% block page %}
+    <section class="section">
+        <div class="container block">
+            <h1 class="title">{{ title }}</h1>
+            <h3 class="subtitle">
+                {{ author }}
+                {% if date %}
+                	- {{ date }}
+                {% endif %}
+            </h3>
+        </div>
+
+
+        <section class="container">
+            <div class="columns block box">
+                <div id="blog_content" class="content column">
+                    {{ md_content|safe }}
+                </div>
+
+                <div class="content column box is-narrow">
+                    {{ md_toc|safe }}
+                </div>
+            </div>
+        </section>
+
+    </section>
+{% endblock %}
