@@ -17,47 +17,46 @@
 
 {% block body %}
     <body class="has-navbar-fixed-top">
-        <nav class="navbar is-fixed-top is-transparent is-spaced" role="navigation" aria-label="main navigation">
-            <div class="navbar-menu">
+        <nav class="navbar has-background-blur box is-fixed-top is-spaced" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item is-size-5 is-family-primary has-text-weight-bold" href="/">
+                    Sam Laird
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="nav-pages">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+
+            <div id="nav-pages" class="navbar-menu">
                 <div class="navbar-start">
 
                 </div>
 
-                <div class="navbar-center is-spaced">
-                    <a class="navbar-item">
-                        Home
-                    </a>
+                <div class="navbar-end">
                     <a class="navbar-item">
                         Portfolio
                     </a>
                     <a class="navbar-item">
                         Projects
                     </a>
+                    <a class="navbar-item" href="/blog">
+                        Blog
+                    </a>
                     <a class="navbar-item">
                         Resources
                     </a>
-                    <a class="navbar-item">
-                        Blog
-                    </a>
-                </div>
 
-                <div class="navbar-end">
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
-                            More
-                        </a>
-
-                        <div class="navbar-dropdown is-right is-boxed">
-                            <a class="navbar-item">
-                                About
-                            </a>
-                            <a class="navbar-item">
-                                Contact
-                            </a>
-                            <hr class="navbar-divider">
-                            <a class="navbar-item">
-                                Report an issue
-                            </a>
+                    <div class="has-margin-left-20-widescreen navbar-item">
+                        <div class="field is-grouped">
+                            <p class="control">
+                                <a class="button is-warning" href="/contact">
+                                    <span>Contact</span>
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -65,5 +64,9 @@
         </nav>
         {% block page %}
         {% endblock %}
+
+        <script src="{{ url_for('static', path='/res/js/min.js') }}"></script>
+        {% block scripts %}
+        {% endblock scripts %}
     </body>
 {% endblock %}
