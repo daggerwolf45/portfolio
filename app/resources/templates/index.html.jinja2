@@ -1,4 +1,18 @@
 {% extends "std.html.jinja2" %}
-{% block body %}
-	<h1>{{ ptext }}</h1>
+{% block page %}
+    <section class="section">
+        <h1 class="title block">{{ ptext }}</h1>
+        <div class="box block">
+            <h2 class="subtitle">Blogs:</h2>
+            <table class="table">
+                {% for stub in latest_blogs %}
+                    <tr>
+                    {% for value in stub %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </section>
 {% endblock %}

@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 from os import PathLike
 from typing import IO, Optional
 
@@ -8,7 +8,8 @@ import markdown
 class MarkdownMeta:
     title: Optional[str] = ""
     author: Optional[str] = ""
-    date: Optional[str] = ""  #TODO Make datetime
+    timestamp: Optional[datetime] = "" # format %m-%d-%Y
+    date: Optional[str] = "" # Printable timestamp
 
     extra: dict
 
@@ -18,7 +19,9 @@ class MarkdownMeta:
         if 'author' in markdown_meta:
             self.author = markdown_meta.pop('author')[0]
         if 'date' in markdown_meta:
-            self.date = markdown_meta.pop('date')[0]
+            strdate = markdown_meta.pop('date')[0]
+            self.timestamp = datetime.strptime(strdate, "%m-%d-%Y")
+            self.date = self.timestamp.strftime("%b %e, %Y")
 
         self.extra = markdown_meta
 

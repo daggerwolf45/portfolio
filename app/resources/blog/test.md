@@ -1,6 +1,6 @@
 Title: This is a blog!
 Author: Sam Laird
-Date: Sept 9th 2024
+Date: 09-09-2024
 
 # Hello World!
 This is a test page.  

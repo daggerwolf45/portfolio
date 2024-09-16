@@ -26,4 +26,8 @@ div:has(.toc) {
     .navbar {
         margin: var(--navbar-offset) 5rem;
     }
+
+    .navbar-dropdown a.navbar-item {
+        padding-inline-end: 1rem;
+    }
 }

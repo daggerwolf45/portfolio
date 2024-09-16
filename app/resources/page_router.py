@@ -1,18 +1,38 @@
+from typing import Annotated
+
+import humanize
+from fastapi import Depends, HTTPException
+
 from fastapi import APIRouter
 from jinja2 import TemplateNotFound
 from starlette.requests import Request
 from starlette.responses import HTMLResponse
 from starlette.templating import Jinja2Templates, _TemplateResponse
 
+from app.cache import ResourceManager, blog_stub
 from app.config import conf
 from app.md import RenderedMarkdown
+from app.utils import truncate
 
 page_router = APIRouter()
 
-template_dir = conf.script_directory / "resources" / "templates"
-blog_dir = conf.script_directory / "resources" / "blog"
+class std_dep:
+    request: Request
+    blogs: list[tuple[str, str]]  #name, path
+    last_blog: str
 
-templates = Jinja2Templates(directory=template_dir)
+    def __init__(self, request: Request, blogs = Depends(ResourceManager.latest_blogs, use_cache=False)):
+        self.request = request
+
+        self.blogs = [(truncate(b.title, conf.nav_menu_char_limit), b.name) for b in blogs]
+        self.last_blog = humanize.naturaltime(blogs[0].date)
+
+
+
+standard_dep = Annotated[std_dep, Depends()]
+
+
+templates = Jinja2Templates(directory=conf.template_dir)
 async def template_response(request: Request, path:str, *, process_name=True, **kw) -> _TemplateResponse:
     if process_name and not path.endswith('.jinja2'):
         if path.endswith('.html'):
@@ -26,11 +46,19 @@ async def template_response(request: Request, path:str, *, process_name=True, **
     except TemplateNotFound as e:
         raise e
 
-
-async def blog_response(request: Request,  markdown: RenderedMarkdown, **kw) -> _TemplateResponse:
-
+async def page_response(common: std_dep, path: str, **kw) -> _TemplateResponse:
     return await template_response(
-          request,
+          request=common.request,
+          path=path,
+          latest_blogs=common.blogs,
+          last_blog_published_time=common.last_blog,
+          **kw
+    )
+
+
+async def blog_response(common: std_dep,  markdown: RenderedMarkdown, **kw) -> _TemplateResponse:
+    return await page_response(
+          common,
           "blog_base",
           md_content=markdown.html,
           md_toc=markdown.toc,
@@ -41,15 +69,23 @@ async def blog_response(request: Request,  markdown: RenderedMarkdown, **kw) -> 
 
 # Routes
 @page_router.get('/', response_class=HTMLResponse)
-async def index(request: Request):
-    return await template_response(request, "index", title="Sam Laird", ptext="Hello World!")
+async def index(std: standard_dep):
+    return await page_response(std, "index", title='Sam Laird', ptext='Welcome!')
+    #return await template_response(request, "index", title="Sam Laird", ptext="Hello World!", test_out=std.blogs)
 
 
-@page_router.get('/blog/{blog_id}', response_class=HTMLResponse)
-async def get_blog(request: Request, blog_id: str):
-    blog_path = blog_dir / (blog_id.lower() + ".md")
+
+@page_router.get(conf.blog_root + '{blog_id}', response_class=HTMLResponse)
+async def get_blog(std: standard_dep, blog_id: str):
+    stub: blog_stub = None
+    try:
+        stub = ResourceManager.get_blog(blog_id)
+    except:
+        raise HTTPException(status_code=404)
+
+    blog_path = conf.blog_dir / stub.filename
 
     markdown = RenderedMarkdown(path=blog_path)
 
-    return await blog_response(request, markdown)
+    return await blog_response(std, markdown)
 

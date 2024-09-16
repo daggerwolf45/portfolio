@@ -1,0 +1,27 @@
+:root {
+    /* Font */
+    --bulma-family-primary: Outfit,Inter, SF Pro, Segoe UI, Roboto, Oxygen, Ubuntu, Helvetica Neue,Helvetica, Arial, sans-serif;
+    --bulma-family-secondary: Nunito,Inter, SF Pro, Segoe UI, Roboto, Oxygen, Ubuntu, Helvetica Neue, Helvetica, Arial, sans-serif;
+
+}
+
+.is-family-primary {
+    font-family: var(--bulma-family-primary), sans-serif !important;
+}
+
+.is-family-secondary {
+    font-family: var(--bulma-family-secondary), sans-serif !important;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        /* CSS Variables */
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* CSS Variables */
+    }
+}
