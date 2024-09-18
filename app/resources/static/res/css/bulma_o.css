@@ -17,6 +17,9 @@
     :root {
         /* CSS Variables */
     }
+    .has-background-grey-lighter {
+        background-color: rgb(239, 241, 245) !important;
+    }
 }
 
 

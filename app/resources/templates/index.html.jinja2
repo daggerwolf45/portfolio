@@ -1,5 +1,27 @@
 {% extends "std.html.jinja2" %}
 {% block page %}
+    <section id="landing-greeting" class="section has-background-grey-lighter">
+        <div class="columns">
+            <div class="column is-4 is-offset-2">
+                <div id="greeting-details" class="block mt-6 is-flex is-flex-direction-column">
+                    <p class="title is-1 is-spaced">
+                        <span>Hello!</span>
+                        <span>I'm Sam Laird</span>
+                    </p>
+                    <p class="subtitle is-family-secondary is-5 has-text-weight-light">Developer with over 7 years of experience creating tools and software businesses love.</p>
+                    <div class="">
+                        <a class="button is-link is-medium" href="/portfolio">View Portfolio</a>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-6  is-flex is-justify-content-center is-align-items-center">
+                <figure id="headshot" class="image">
+                    <img src="{{ url_for('static', path='/res/img/man.webp') }}" alt="portrait photo">
+                </figure>
+            </div>
+        </div>
+    </section>
+
     <section class="section">
         <h1 class="title block">{{ ptext }}</h1>
         <div class="box block">
