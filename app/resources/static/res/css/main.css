@@ -55,6 +55,18 @@ div:has(.toc) {
     max-width: fit-content;
 }
 
+.testimonial .media .media-content {
+    height: 100%
+}
+
+.testimonial .media .media-content div{
+    height: 100%
+}
+
+.testimonial-text {
+    margin-top: -1rem !important;
+}
+
 
 /* Desktop Settings */
 @media screen and (min-width: 1024px) {
@@ -69,6 +81,10 @@ div:has(.toc) {
         padding-inline-end: 1rem;
     }
 
+    .top-sec {
+        padding-top: calc(var(--bulma-navbar-height) + var(--navbar-offset));
+    }
+
     #landing-greeting{
         padding-top: calc(var(--bulma-navbar-height) + var(--navbar-offset) + 48px);
         height: 600px;
@@ -78,4 +94,21 @@ div:has(.toc) {
         padding-top: 0;
     }
 
+}
+
+.use-close-lists ul {
+    margin-top: 0.6rem !important;
+    margin-left: 1rem;
+}
+
+.use-close-lists div > p.title {
+    margin-bottom: 0;
+}
+
+.column.has-text-right ul {
+    direction: rtl;
+}
+
+.use-close-lists .column.has-text-right ul {
+    margin-right: 1rem;
 }

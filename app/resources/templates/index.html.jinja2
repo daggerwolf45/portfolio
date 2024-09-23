@@ -1,6 +1,6 @@
 {% extends "std.html.jinja2" %}
 {% block page %}
-    <section id="landing-greeting" class="section has-background-grey-lighter">
+    <section id="landing-greeting" class="section has-background-grey-lighter top-sec">
         <div class="columns container">
             <div class="column is-4 is-offset-2">
                 <div id="greeting-details" class="block mt-6 is-flex is-flex-direction-column">
@@ -19,6 +19,54 @@
                     <img src="{{ url_for('static', path='/res/img/man.webp') }}" alt="portrait photo">
                 </figure>
             </div>
+        </div>
+    </section>
+    <section id="testimonials" class="section">
+
+        <div class="columns container">
+            <div class="column is-4 is-offset-2 is-flex is-flex-direction-column">
+                    <div class="testimonial box columns is-2">
+                        <div class="column is-narrow">
+                            <figure class="image is-48x48">
+                                <img class="is-rounded" src="{{ url_for('static', path='/res/img/face.jpeg') }}" alt="face">
+                            </figure>
+                        </div>
+                        <div class="column is-10 is-flex is-flex-direction-column">
+                            <p class="is-size-4 has-text-weight-bold is-italic is-family-secondary">
+                                <span>
+                                    "
+                                </span>
+                            </p>
+                            <p class="mb-3 pl-3 testimonial-text is-size-6 is-italic">
+                                <span>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dignissim placerat aliquyam. Zzril nonumy sint suscipit. Sint molestie culpa.
+                                </span>
+                            </p>
+                            <div class="pl-3 is-flex is-flex-direction-column is-justify-content-space-evenly">
+                                <p class="title is-5 has-text-weight-bold">
+                                    <span>James Dean</span>
+                                </p>
+                                <p class="subtitle is-6 is-family-secondary">
+                                    <span>Actor</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-one-third">
+                        <div class="testimonial">
+
+                        </div>
+                    </div>
+            </div>
+
+            <div class="column box is-3 is-offset-2">
+                <div class="testimonial">
+
+                </div>
+            </div>
+
+
         </div>
     </section>
 

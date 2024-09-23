@@ -74,6 +74,9 @@ async def index(std: standard_dep):
     #return await template_response(request, "index", title="Sam Laird", ptext="Hello World!", test_out=std.blogs)
 
 
+@page_router.get('/portfolio', response_class=HTMLResponse)
+async def portfolio(std: standard_dep):
+    return await page_response(std, "portfolio", title='SLaird - Portfolio')
 
 @page_router.get(conf.blog_root + '{blog_id}', response_class=HTMLResponse)
 async def get_blog(std: standard_dep, blog_id: str):
