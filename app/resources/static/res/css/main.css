@@ -46,6 +46,20 @@ div:has(.toc) {
     height: calc(100%);
 }
 
+
+
+#hire-tag {
+    border-radius: var(--bulma-radius-rounded);
+    background-color: hsl(96deg, 44%, 72%);
+    font-family: var(--bulma-family-secondary);
+    font-weight: bold;
+    color: #FFF;
+}
+
+#hire-tag .icon {
+    font-size: 0.5rem;
+}
+
 #headshot {
     height: 100%;
 }
@@ -66,6 +80,7 @@ div:has(.toc) {
 .testimonial-text {
     margin-top: -1rem !important;
 }
+
 
 
 /* Desktop Settings */

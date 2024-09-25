@@ -42,26 +42,26 @@
                         Portfolio
                     </a>
                     <a class="navbar-item is-family-secondary has-text-weight-bold">
-                        Projects
+                        Works
                     </a>
 
-                    <div class="navbar-item has-dropdown is-hoverable is-family-secondary has-text-weight-bold">
-                        <a class="navbar-link is-arrowless" href="/blog">
-                            Blog
-                        </a>
-
-                        <div class="navbar-dropdown">
-                            {% for entry in latest_blogs %}
-                                <a class="navbar-item" href="{{ '/blog/' + entry[1] }}">
-                                    {{ entry[0] }}
-                                </a>
-                            {% endfor %}
-                            <hr class="navbar-divider">
-                            <div class="navbar-item">
-                                Updated {{ last_blog_published_time }}
-                            </div>
-                        </div>
-                    </div>
+{#                    <div class="navbar-item has-dropdown is-hoverable is-family-secondary has-text-weight-bold">#}
+{#                        <a class="navbar-link is-arrowless" href="/blog">#}
+{#                            Blog#}
+{#                        </a>#}
+{##}
+{#                        <div class="navbar-dropdown">#}
+{#                            {% for entry in latest_blogs %}#}
+{#                                <a class="navbar-item" href="{{ '/blog/' + entry[1] }}">#}
+{#                                    {{ entry[0] }}#}
+{#                                </a>#}
+{#                            {% endfor %}#}
+{#                            <hr class="navbar-divider">#}
+{#                            <div class="navbar-item">#}
+{#                                Updated {{ last_blog_published_time }}#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
 
                     <a class="navbar-item is-family-secondary has-text-weight-bold">
                         Resources
