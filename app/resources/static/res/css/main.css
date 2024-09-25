@@ -32,10 +32,13 @@ div:has(.toc) {
 }
 
 
+/*.navbar-item{*/
+/*    color: #4c4f69;*/
+/*}*/
+
 
 #landing-greeting {
     padding-bottom: 0;
-
 }
 
 #landing-greeting div:has(#headshot){
@@ -60,6 +63,8 @@ div:has(.toc) {
     font-size: 0.5rem;
 }
 
+
+
 #headshot {
     height: 100%;
 }
@@ -68,6 +73,11 @@ div:has(.toc) {
     height: 100%;
     max-width: fit-content;
 }
+
+/*This is temporary!! Make part of color pallet*/
+/*.button.is-link {*/
+/*    background-color: #1e66f5;*/
+/*}*/
 
 .testimonial .media .media-content {
     height: 100%

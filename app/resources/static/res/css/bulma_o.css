@@ -20,6 +20,17 @@
 @media (prefers-color-scheme: light) {
     :root {
         /* CSS Variables */
+        --bulma-text: #363a4f;
+        --bulma-text-bold: #24273a;
+
+        --bulma-link: #1e66f5;
+        --bulma-link-rgb: 30, 102, 245;
+        --bulma-link-h: 220deg;
+        --bulma-link-s: 91%;
+        --bulma-link-l: 54%;
+    }
+
+    .title {
     }
     .has-background-grey-lighter {
         background-color: rgb(239, 241, 245) !important;
