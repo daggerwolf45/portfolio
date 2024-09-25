@@ -32,9 +32,6 @@ div:has(.toc) {
 }
 
 
-/*.navbar-item{*/
-/*    color: #4c4f69;*/
-/*}*/
 
 
 #landing-greeting {
@@ -56,11 +53,12 @@ div:has(.toc) {
     background-color: hsl(96deg, 44%, 72%);
     font-family: var(--bulma-family-secondary);
     font-weight: bold;
+    font-size: 0.71rem;
     color: #FFF;
 }
 
 #hire-tag .icon {
-    font-size: 0.5rem;
+    font-size: 0.66667em;
 }
 
 
