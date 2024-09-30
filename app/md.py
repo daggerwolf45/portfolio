@@ -10,6 +10,7 @@ class MarkdownMeta:
     author: Optional[str] = ""
     timestamp: Optional[datetime] = "" # format %m-%d-%Y
     date: Optional[str] = "" # Printable timestamp
+    description: Optional[str] = ""
 
     extra: dict
 
@@ -22,6 +23,8 @@ class MarkdownMeta:
             strdate = markdown_meta.pop('date')[0]
             self.timestamp = datetime.strptime(strdate, "%m-%d-%Y")
             self.date = self.timestamp.strftime("%b %e, %Y")
+        if 'description' in markdown_meta:
+            self.description = markdown_meta.pop('description')[0]
 
         self.extra = markdown_meta
 

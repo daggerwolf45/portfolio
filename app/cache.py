@@ -13,12 +13,16 @@ class blog_stub:
     title: str
     name: str
     date: datetime
+    author: str
+    description: str
 
-    def __init__(self, filename: str, name: str, title: str = None, date: datetime = None):
+    def __init__(self, filename: str, name: str, title: str = None, date: datetime = None, author: str = None, desc: str = None):
         self.filename = filename
         self.title = title or name
         self.name = name
         self.date = date or datetime.fromtimestamp(0)
+        self.author = author or ''
+        self.description = desc or ''
 
     def __iter__(self):
         return iter(self.__dict__.values())
@@ -53,7 +57,7 @@ class ResourceManager:
             name = filename.split('.')[0]
 
         blog = RenderedMarkdown(path=path)
-        stub = blog_stub(filename, name,blog.meta.title, blog.meta.timestamp)
+        stub = blog_stub(filename, name,blog.meta.title, blog.meta.timestamp, blog.meta.author, blog.meta.description)
 
         return stub
 

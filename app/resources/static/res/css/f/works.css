@@ -1,0 +1,66 @@
+
+#photography > div > div{
+    overflow: scroll;
+}
+
+#photography .card {
+    height: 100%;
+    width: fit-content;
+    border-radius: 0 0 var(--bulma-card-radius) var(--bulma-card-radius);
+    border: solid white 1rem;
+    display: block;
+    margin-left: 1rem;
+}
+
+#photography .card:last-child{
+    margin-right: 2rem;
+}
+
+#photography img {
+    border-radius: 0;
+}
+
+#works-cols .column .box{
+    height: 100%;
+    overflow-y: hidden;
+}
+
+
+.scroll-box {
+    height: 100%;
+    overflow-y: scroll;
+
+    overflow-x: visible;
+    border-radius: var(--bulma-box-radius);
+}
+
+/*TODO Replace with pretty scroll bar to side*/
+.scroll-box::-webkit-scrollbar {
+    display: none;
+}
+div:has(.card)::-webkit-scrollbar {
+    display: none;
+}
+
+
+.blog-entry {
+    overflow: unset !important;
+    height: auto !important;
+}
+
+
+/* Desktop Settings */
+@media screen and (min-width: 1024px) {
+    #photography figure {
+        width: 200px;
+        height: 200px;
+    }
+
+    #works-cols .column {
+        height: 26rem;
+    }
+
+    .blog-entry:last-child {
+        margin-bottom: 2rem;
+    }
+}

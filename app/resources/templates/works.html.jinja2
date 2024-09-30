@@ -1,0 +1,139 @@
+{% extends "std.html.jinja2" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', path='/res/css/f/works.css') }}" />
+{% endblock %}
+{% block page %}
+    <div class="container top-sec">
+        <div class="block">
+            <p class="title is-3 has-font-weight-bold mb-2">Things I've Made</p>
+            <div class="field tags is-grouped">
+                <button class="tag is-hoverable is-light">Photography</button>
+                <button class="tag is-hoverable is-light is-info">Blogs</button>
+                <button class="tag is-hoverable is-light is-danger">Projects</button>
+                <button class="tag is-hoverable is-light is-warning">Poetry</button>
+                <button class="tag is-hoverable is-light is-link">Setups</button>
+                <button class="tag is-hoverable is-light is-success">Scriblings</button>
+            </div>
+        </div>
+
+        <div id="works-cols" class="columns is-multiline pt-1">
+
+            <div id="photography" class="column is-8">
+                <div class="box has-background-primary-90">
+                    <p class="title is-family-secondary is-4 mb-3">Photography</p>
+                    <div class="is-flex is-flex-direction-row">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-1by1">
+                                    <img src="https://thispersondoesnotexist.com/?123" alt="Fake person">
+                                </figure>
+                            </div>
+                            <div class="card-content p-2">
+                                <div class="content">
+                                    <p class="mb-0">
+                                        <span class="mb-0 is-size-5 is-family-primary has-text-weight-bold">A Face</span>
+                                    </p>
+                                    <p>
+                                        <span class="is-italic">Sam Laird</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-1by1">
+                                    <img src="https://thispersondoesnotexist.com/?1456" alt="Fake person">
+                                </figure>
+                            </div>
+                            <div class="card-content p-2">
+                                <div class="content">
+                                    <p class="mb-0">
+                                        <span class="mb-0 is-size-5 is-family-primary has-text-weight-bold">A Face</span>
+                                    </p>
+                                    <p>
+                                        <span class="is-italic">Sam Laird</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-1by1">
+                                    <img src="https://thispersondoesnotexist.com/?a83" alt="Fake person">
+                                </figure>
+                            </div>
+                            <div class="card-content p-2">
+                                <div class="content">
+                                    <p class="mb-0">
+                                        <span class="mb-0 is-size-5 is-family-primary has-text-weight-bold">A Face</span>
+                                    </p>
+                                    <p>
+                                        <span class="is-italic">Sam Laird</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-1by1">
+                                    <img src="https://thispersondoesnotexist.com/?sd3" alt="Fake person">
+                                </figure>
+                            </div>
+                            <div class="card-content p-2">
+                                <div class="content">
+                                    <p class="mb-0">
+                                        <span class="mb-0 is-size-5 is-family-primary has-text-weight-bold">A Face</span>
+                                    </p>
+                                    <p>
+                                        <span class="is-italic">Sam Laird</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-1by1">
+                                    <img src="https://thispersondoesnotexist.com/?93bf9h349" alt="Fake person">
+                                </figure>
+                            </div>
+                            <div class="card-content p-2">
+                                <div class="content">
+                                    <p class="mb-0">
+                                        <span class="mb-0 is-size-5 is-family-primary has-text-weight-bold">A Face</span>
+                                    </p>
+                                    <p>
+                                        <span class="is-italic">Sam Laird</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-4">
+                <div class="box has-background-info-95">
+                    <p class="title is-family-secondary is-4 mb-3">Blogs</p>
+                    <div class="scroll-box">
+                        {% for entry in blogs %}
+                            <div class="box blog-entry">
+                                <a href="{{ '/blog/' + entry[1] }}">
+                                    <p class="title is-6 has-text-info-bold is-family-secondary has-text-weight-bold mb-1">{{ entry[0] }}</p>
+                                    <p class="ml-1 mb-1 is-size-6 is-family-primary has-text-grey-darker">{{ entry[3] }}</p>
+                                    <p class="subtitle has-text-info-bold is-family-primary is-6">{{ entry[2] }}</p>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="column is-12">
+                <div class="box has-background-danger-95">
+                    <p class="title is-family-secondary is-4">Projects</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

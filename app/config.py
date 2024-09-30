@@ -8,6 +8,9 @@ class Config:
 
     nav_menu_char_limit=30
 
+    works_blog_char_limit=45
+    works_blog_desc_char_limit=180
+
     blog_root = '/blog/'
 
     template_dir = script_directory / "resources" / "templates"

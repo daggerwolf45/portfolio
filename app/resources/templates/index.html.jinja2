@@ -1,4 +1,7 @@
 {% extends "std.html.jinja2" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', path='/res/css/f/index.css') }}" />
+{% endblock %}
 {% block page %}
     <section id="landing-greeting" class="section has-background-grey-lighter top-sec">
         <div class="columns container">

@@ -28,7 +28,6 @@ class std_dep:
         self.last_blog = humanize.naturaltime(blogs[0].date)
 
 
-
 standard_dep = Annotated[std_dep, Depends()]
 
 
@@ -67,17 +66,35 @@ async def blog_response(common: std_dep,  markdown: RenderedMarkdown, **kw) -> _
     )
 
 
+
 # Routes
+# Index
 @page_router.get('/', response_class=HTMLResponse)
 async def index(std: standard_dep):
     return await page_response(std, "index", title='Sam Laird', ptext='Welcome!')
     #return await template_response(request, "index", title="Sam Laird", ptext="Hello World!", test_out=std.blogs)
 
-
+# Portfolio
 @page_router.get('/portfolio', response_class=HTMLResponse)
 async def portfolio(std: standard_dep):
     return await page_response(std, "portfolio", title='Sam Laird - Portfolio')
 
+
+# Works
+@page_router.get('/works', response_class=HTMLResponse)
+async def portfolio(std: standard_dep, blogs: Annotated[list[blog_stub], Depends(ResourceManager.latest_blogs)]):
+    blogs = [
+        (
+            truncate(b.title, conf.works_blog_char_limit),
+            b.name,
+            b.author,
+            truncate(b.description, conf.works_blog_desc_char_limit),
+         ) for b in blogs]
+
+    return await page_response(std, "works", title='Things I made - Sam Laird', blogs=blogs)
+
+
+# Blog Posts
 @page_router.get(conf.blog_root + '{blog_id}', response_class=HTMLResponse)
 async def get_blog(std: standard_dep, blog_id: str):
     stub: blog_stub = None

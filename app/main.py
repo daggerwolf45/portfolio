@@ -3,7 +3,7 @@ from starlette.staticfiles import StaticFiles
 
 from app.cache import ResourceManager
 from app.config import conf
-from app.resources.page_router import page_router
+from app.page_router import page_router
 
 ResourceManager()
 

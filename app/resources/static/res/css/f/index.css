@@ -1,0 +1,35 @@
+#hire-tag {
+    border-radius: var(--bulma-radius-rounded);
+    background-color: hsl(96deg, 44%, 72%);
+    font-family: var(--bulma-family-secondary);
+    font-weight: bold;
+    font-size: 0.71rem;
+    color: #FFF;
+}
+
+#hire-tag .icon {
+    font-size: 0.66667em;
+}
+
+
+#headshot {
+    height: 100%;
+}
+
+#headshot img {
+    height: 100%;
+    max-width: fit-content;
+}
+
+
+.testimonial .media .media-content {
+    height: 100%
+}
+
+.testimonial .media .media-content div{
+    height: 100%
+}
+
+.testimonial-text {
+    margin-top: -1rem !important;
+}

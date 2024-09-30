@@ -1,4 +1,7 @@
 {% extends "std.html.jinja2" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', path='/res/css/f/blog.css') }}" />
+{% endblock %}
 {% block page %}
     <section class="section">
         <div class="container block mb-6">
