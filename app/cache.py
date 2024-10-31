@@ -97,6 +97,8 @@ class ResourceManager:
             cls._blog_list.append(stub)
             cls._blog_list = cls._sort_blogs(cls._blog_list)
 
+            return stub
+
     @classmethod
     def latest_blogs(cls, count: int = 5) -> list[blog_stub]:
         if len(cls._blog_list) < count:
