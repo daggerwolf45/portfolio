@@ -1,0 +1,43 @@
+.exp-block {
+    display: flex !important;
+    flex-direction: row;
+    line-height: var(--bulma-body-line-height);
+    margin-bottom: calc(var(--bulma-block-spacing) + 0.1rem);
+}
+
+.exp-trail {
+    display: block;
+    width: 1rem;
+    text-align: center;
+    margin-right: 1rem;
+}
+
+.exp-dot {
+    height: 0.75rem;
+    width: 0.75rem;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.exp-line {
+    display: block;
+    width: 0.3rem;
+    border-radius: 0.15rem;
+    height: calc(100%);
+    margin: 0 auto;
+}
+
+
+.exp-details {
+    height: fit-content;
+}
+
+
+
+.taf-block .columns {
+    margin-bottom: 0.9rem;
+}
+
+.taf-block .columns:first-child {
+    margin-bottom: 0;
+}

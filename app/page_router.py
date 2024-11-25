@@ -45,12 +45,15 @@ async def template_response(request: Request, path:str, *, process_name=True, **
     except TemplateNotFound as e:
         raise e
 
+
 async def page_response(common: std_dep, path: str, **kw) -> _TemplateResponse:
+
     return await template_response(
           request=common.request,
           path=path,
           latest_blogs=common.blogs,
           last_blog_published_time=common.last_blog,
+          pageUrl=str(common.request.url),
           **kw
     )
 
@@ -66,7 +69,6 @@ async def blog_response(common: std_dep,  markdown: RenderedMarkdown, **kw) -> _
     )
 
 
-
 # Routes
 # Index
 @page_router.get('/', response_class=HTMLResponse)
@@ -74,11 +76,14 @@ async def index(std: standard_dep):
     return await page_response(std, "index", title='Sam Laird', ptext='Welcome!')
     #return await template_response(request, "index", title="Sam Laird", ptext="Hello World!", test_out=std.blogs)
 
+
 # Portfolio
 @page_router.get('/portfolio', response_class=HTMLResponse)
 async def portfolio(std: standard_dep):
     return await page_response(std, "portfolio", title='Sam Laird - Portfolio')
-
+@page_router.get('/portfolio-alt', response_class=HTMLResponse)
+async def portfolio(std: standard_dep):
+    return await page_response(std, "portfolio-alt", title='Sam Laird - Portfolio')
 
 # Works
 @page_router.get('/works', response_class=HTMLResponse)

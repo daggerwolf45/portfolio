@@ -1,7 +1,7 @@
 #hire-tag {
     border-radius: var(--bulma-radius-rounded);
     background-color: hsl(96deg, 44%, 72%);
-    font-family: var(--bulma-family-secondary);
+    font-family: var(--bulma-family-secondary) sans-serif;
     font-weight: bold;
     font-size: 0.71rem;
     color: #FFF;
