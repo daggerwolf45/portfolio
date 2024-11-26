@@ -1,36 +1,66 @@
 .exp-block {
+}
+
+.exp-line-block {
     display: flex !important;
     flex-direction: row;
     line-height: var(--bulma-body-line-height);
-    margin-bottom: calc(var(--bulma-block-spacing) + 0.1rem);
 }
+
 
 .exp-trail {
     display: block;
     width: 1rem;
-    text-align: center;
     margin-right: 1rem;
+    align-content: center;
 }
 
 .exp-dot {
     height: 0.75rem;
     width: 0.75rem;
     border-radius: 50%;
-    display: inline-block;
+    display: block;
+    margin: 0 calc(33%);
 }
 
 .exp-line {
     display: block;
     width: 0.3rem;
     border-radius: 0.15rem;
-    height: calc(100%);
-    margin: 0 auto;
+    height: 95%;
+    margin: 0 calc(33%);
 }
-
 
 .exp-details {
     height: fit-content;
 }
+
+
+.exp-dot-mini {
+    display: block;
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.multi-role-block {
+
+}
+
+.multi-role-block .exp-line {
+    height: 150%;
+}
+
+.multi-role-block .exp-line-block:last-child .exp-line {
+    background-color: blue !important;
+    height: 95%;
+}
+
+
+/*.work-block .exp-block:last-child .exp-line{*/
+/*    height: 80%;*/
+/*}*/
 
 
 
