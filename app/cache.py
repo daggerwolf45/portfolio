@@ -2,10 +2,11 @@ import glob
 from datetime import datetime
 from os import PathLike
 
-from pkg_resources import ResourceManager
-
+import yaml
+#from app.db.engine import Interface
 from app.config import conf
 from app.md import RenderedMarkdown
+from app.models import Job
 
 
 class blog_stub:
@@ -28,23 +29,27 @@ class blog_stub:
         return iter(self.__dict__.values())
 
 
+
 class ResourceManager:
     _instance: 'ResourceManager' = None
 
     _blogs: dict[str, blog_stub] = {}
     _blog_list: list[blog_stub]
+    _work_experience: list[Job]
 
     def __new__(cls):
         if cls._instance is None:
             cls._instance = super(ResourceManager, cls).__new__(cls)
             cls._instance.reload_cache()
+            #Interface.start()
             print("ResourceManager loaded..")
 
 
     @classmethod
     def reload_cache(cls):
         cls.generate_blogs()
-        ...
+        cls.generate_we()
+        return
 
 
     @classmethod
@@ -65,13 +70,27 @@ class ResourceManager:
     def generate_blogs(cls):
         blogs = {}
         for filename in glob.glob('*.md', root_dir=conf.blog_dir):
-            stub = cls._load_blog(path=conf.blog_dir/ filename)
+            stub = cls._load_blog(path=conf.blog_dir / filename)
             blogs[stub.name] = stub
 
         ordered_blogs = sorted(blogs.values(), key=lambda b: b.date, reverse=True)
 
         cls._blogs = blogs
         cls._blog_list = ordered_blogs
+
+
+    @classmethod
+    def generate_we(cls):
+        data = {}
+        exp = []
+        with open(conf.data_dir / conf.we_filename, 'r') as f:
+            data = yaml.load(f, Loader=yaml.Loader)
+
+        for job in data['jobs']:
+            exp.append(Job.model_validate(job))
+
+        cls._work_experience = exp
+
 
 
     @classmethod
@@ -105,3 +124,9 @@ class ResourceManager:
             return cls._blog_list
         else:
             return cls._blog_list[:count]
+
+
+    @classmethod
+    def get_we(cls) -> list[Job]:
+        return cls._work_experience
+

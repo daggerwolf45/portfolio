@@ -12,6 +12,7 @@ from starlette.templating import Jinja2Templates, _TemplateResponse
 from app.cache import ResourceManager, blog_stub
 from app.config import conf
 from app.md import RenderedMarkdown
+from app.models import Job
 from app.utils import truncate
 
 page_router = APIRouter()
@@ -81,13 +82,17 @@ async def index(std: standard_dep):
 @page_router.get('/portfolio', response_class=HTMLResponse)
 async def portfolio(std: standard_dep):
     return await page_response(std, "portfolio", title='Sam Laird - Portfolio')
+
+
 @page_router.get('/portfolio-alt', response_class=HTMLResponse)
-async def portfolio(std: standard_dep):
-    return await page_response(std, "portfolio-alt", title='Sam Laird - Portfolio')
+async def portfolio_alt(std: standard_dep, experience: Annotated[list[Job], Depends(ResourceManager.get_we)]):
+    return await page_response(std, "portfolio-alt", title='Sam Laird - Portfolio', experience=experience)
+
+
 
 # Works
 @page_router.get('/works', response_class=HTMLResponse)
-async def portfolio(std: standard_dep, blogs: Annotated[list[blog_stub], Depends(ResourceManager.latest_blogs)]):
+async def works(std: standard_dep, blogs: Annotated[list[blog_stub], Depends(ResourceManager.latest_blogs)]):
     blogs = [
         (
             truncate(b.title, conf.works_blog_char_limit),

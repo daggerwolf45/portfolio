@@ -1,0 +1,32 @@
+jobs:
+  - company: {
+      name: "Nextera Robotics",
+      url: "https://nexterarobotics.com/didge-ai"
+      }
+    role: "Backend & Devops Developer - Electronics Engineer"
+    start_date: "Jul/2022"
+    end_date: "Oct/2023"
+    details:
+      - text: "Developed backend for Robot fleet control portal"
+      - text: "Created automated deployment manager for robots and network infrastructure"
+      - text: "Designed and oversaw development of the following hardware for Robot"
+        sub_detail:
+          - text: "PDU and Charging Controller"
+          - text: "Managed USB-3 IO & Networking Board"
+      - text: "Various signal/rf integrity and fault recovery systems for 900mhz mesh network"
+
+  - company: {
+      name: "Boundless Robotics",
+      url: "https://boundlessrobotics.com/"
+      }
+    role: "Consulting Test Engineer"
+    start_date: "Aug/2023"
+    end_date: "Nov/2023"
+    details:
+      - text: "Built dynamic test platform for full and partial hardware verification"
+        sub_detail:
+          - text: "Web Interface for controls and debugging"
+          - text: "Component level pre-assembly testing support"
+          - text: "Support for easy expandability and test groups"
+
+      - text: "Assisted in FCC certification of wireless radio"

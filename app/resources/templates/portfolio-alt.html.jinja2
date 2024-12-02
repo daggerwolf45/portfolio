@@ -13,6 +13,51 @@
                 <div class="column is-6"></div>
             </div>
 
+            {% macro render_detail(detail) %}
+                <li>{{ detail.text }}
+                {% if detail.sub_detail is defined and detail.sub_detail is not none %}
+                    <ul>
+                    {% for sd in detail.sub_detail %}
+                        {{ render_detail(sd) }}
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                </li>
+
+            {% endmacro %}
+
+            {% for exp in experience %}
+                <div class="block columns is-centered is-6 exp-block">
+                    <div class="column is-4 has-text-right">
+                        <a href="{{ exp.company.url }}">
+                            <p class="title is-4 has-text-weight-semibold">{{ exp.company.name }}</p>
+                        </a>
+                        <p class="subtitle is-6 mb-2">
+                            <span class="is-italic">{{ exp.role }}</span>
+                        </p>
+                    </div>
+
+                    <div class="column is-6 exp-line-block">
+                        <div class="exp-trail">
+                            <span class="exp-dot"></span>
+                            <div class="exp-line"></div>
+                        </div>
+                        <div class="exp-details content">
+                            <span class="tag is-rounded">
+                                {{ exp.start_date }} - {{ exp.end_date }}
+                            </span>
+                            <ul class="ml-4 mt-1">
+                                {% for detail in exp.details %}
+                                    {{ render_detail(detail) }}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <hr>
+
             <!-- Genuone -->
             <div class="block columns is-centered is-6 exp-block">
                 <div class="column is-4 has-text-right">
@@ -396,7 +441,6 @@
                             <span class="tag">JavaFX</span>
                             <span class="tag">Swing</span>
                             <span class="tag">Bulma</span>
-                            <span class="tag">MaterialUI</span>
                             <span class="tag">A Lot of raw HTML/CSS</span>
                         </div>
                     </div>
@@ -450,15 +494,40 @@
 
             <div class="columns is-centered is-6">
                 <div class="column is-4 has-text-right">
-                    <p class="title is-4 has-text-weight-semibold">Devtools</p>
+                    <p class="title is-4 has-text-weight-semibold">Embedded Systems</p>
                 </div>
                 <div class="column is-6">
                     <div class="block">
                         <div class="tags are-medium">
-                            <span class="tag">Pydantic</span>
-                            <span class="tag">Jinja2</span>
-                            <span class="tag">Beartype</span>
-                            <span class="tag">MyPy</span>
+                            <span class="tag">Arm</span>
+                            <span class="tag">MSP430</span>
+                            <span class="tag">Arm-V8</span>
+                            <span class="tag">ESP32</span>
+                            <span class="tag">ESP-01</span>
+                            <span class="tag">ESP8266</span>
+                            <span class="tag">MIPS32</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns is-centered is-6">
+                <div class="column is-4 has-text-right">
+                    <p class="title is-4 has-text-weight-semibold">Operating Systems</p>
+                </div>
+                <div class="column is-6">
+                    <div class="block">
+                        <div class="tags are-medium">
+                            <span class="tag">Windows 10/11</span>
+                            <span class="tag">Mac OS</span>
+                        </div>
+
+                        <p class="subtitle is-6 has-font-weight-medium is-italic mb-2">Linux</p>
+                        <div class="tags are-medium">
+                            <span class="tag">Ubuntu</span>
+                            <span class="tag">Debian</span>
+                            <span class="tag">Alpine</span>
+                            <span class="tag">Arch</span>
                         </div>
                     </div>
                 </div>

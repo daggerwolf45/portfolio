@@ -1,0 +1,13 @@
+jobs:
+  - company: {
+      name: "",
+      url: ""
+      }
+    role: ""
+    start_date: ""
+    end_date: ""
+    details:
+      - text: ""
+        sub_detail:
+          - text: ""
+      - text: ""
