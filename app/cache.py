@@ -87,7 +87,7 @@ class ResourceManager:
             data = yaml.load(f, Loader=yaml.Loader)
 
         for job in data['jobs']:
-            exp.append(Job.model_validate(job))
+            exp.append(Job.from_yaml(job))
 
         cls._work_experience = exp
 

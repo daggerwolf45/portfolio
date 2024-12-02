@@ -2,14 +2,16 @@
 .exp-line-block {
     display: flex !important;
     flex-direction: row;
-    margin-bottom: var(--bulma-block-spacing)
 }
+/* Modified in role-block:last-child*/
+
 
 .exp-trail {
     display: block;
     width: 1rem;
     margin-right: 1rem;
 }
+
 
 .exp-dot {
     position: relative;
@@ -23,32 +25,50 @@
 
     background-color: var(--bulma-grey);
 }
-
-.mini-dot {
-    top: 0.5em;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-
-    box-shadow: 0 0 0.5rem 1px var(--bulma-primary);
-}
+/* Modified in role-block:last-child*/
 
 
 .exp-line {
     display: block;
     width: 0.25rem;
-    height: 100%;
+    height: calc(100%);
     margin: calc(0.3rem + 0.5em) auto 0.3rem;
     border-radius: 0.25rem;
 
     background-color: var(--bulma-grey-light);
 }
 
-.exp-line-block:last-child .exp-line {
+.exp-block:not(.test-block) .exp-line-block:last-child .exp-line {
     height: 95%;
     background: linear-gradient(var(--bulma-grey-light) 70%, var(--bulma-primary), 95%, transparent);
 }
 
+
+.test-block .role-block:last-child .exp-line {
+    height: 95%;
+    background: linear-gradient(var(--bulma-grey-light) 70%, var(--bulma-primary), 95%, transparent);
+}
+
+
+
+.role-block:not(:last-child) {
+    margin-bottom: 0 !important;
+}
+
+/*.role-block:not(:last-child) .column:has(.exp-line-block) {*/
+/*    padding-bottom: 1rem;*/
+/*}*/
+
+.role-block:last-child .exp-line-block {
+    margin-bottom: var(--bulma-block-spacing)
+}
+
+.role-block:not(:first-child) .exp-dot { /*Mini-dot*/
+    width: 0.5rem;
+    height: 0.5rem;
+
+    box-shadow: 0 0 0.5rem 1px var(--bulma-primary);
+}
 
 
 

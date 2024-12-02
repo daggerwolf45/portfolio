@@ -6,8 +6,12 @@ jobs:
     role: ""
     start_date: ""
     end_date: ""
-    details:
-      - text: ""
-        sub_detail:
+    roles:
+        - title
+        start_date: ""
+        end_date: ""
+        details:
           - text: ""
-      - text: ""
+            sub_detail:
+              - text: ""
+          - text: ""
