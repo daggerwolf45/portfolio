@@ -17,10 +17,13 @@ app = FastAPI()
 # Middleware
 origins = [
     "http://127.0.0.1:8000",
+    "http://0.0.0.0:8000",
+    "http://192.168.1.87:8000",
     "https://www.slaird.dev",
     "https://slaird.dev",
     "https://samlaird.com",
-    "https://www.samlaird.com"
+    "https://www.samlaird.com",
+    "https://portfolio.alpine.slaird.dev"
 ]
 
 app.add_middleware(

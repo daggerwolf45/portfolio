@@ -17,12 +17,13 @@ from app.utils import truncate
 
 page_router = APIRouter()
 
+
 class std_dep:
     request: Request
     blogs: list[tuple[str, str]]  #name, path
     last_blog: str
 
-    def __init__(self, request: Request, blogs = Depends(ResourceManager.latest_blogs, use_cache=False)):
+    def __init__(self, request: Request, blogs=Depends(ResourceManager.latest_blogs, use_cache=False)):
         self.request = request
 
         self.blogs = [(truncate(b.title, conf.nav_menu_char_limit), b.name) for b in blogs]
@@ -80,14 +81,13 @@ async def index(std: standard_dep):
 
 # Portfolio
 @page_router.get('/portfolio', response_class=HTMLResponse)
-async def portfolio(std: standard_dep):
-    return await page_response(std, "portfolio", title='Sam Laird - Portfolio')
+async def portfolio(std: standard_dep, experience: Annotated[list[Job], Depends(ResourceManager.get_we)]):
+    return await page_response(std, "portfolio", title='Sam Laird - Portfolio', experience=experience)
 
 
 @page_router.get('/portfolio-alt', response_class=HTMLResponse)
-async def portfolio_alt(std: standard_dep, experience: Annotated[list[Job], Depends(ResourceManager.get_we)]):
-    return await page_response(std, "portfolio-alt", title='Sam Laird - Portfolio', experience=experience)
-
+async def portfolio_alt(std: standard_dep):
+    return await page_response(std, "portfolio-alt", title='Sam Laird - Portfolio')
 
 
 # Works

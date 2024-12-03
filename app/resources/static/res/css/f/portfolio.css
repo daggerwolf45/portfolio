@@ -1,36 +1,129 @@
-.exp-block {
+
+.exp-line-block {
     display: flex !important;
     flex-direction: row;
-    line-height: var(--bulma-body-line-height);
-    margin-bottom: calc(var(--bulma-block-spacing) + 0.1rem);
 }
+/* Modified in role-block:last-child*/
+
 
 .exp-trail {
     display: block;
     width: 1rem;
-    text-align: center;
     margin-right: 1rem;
 }
 
+
 .exp-dot {
-    height: 0.75rem;
+    position: relative;
+    top: 0.5em;
+    display: block;
     width: 0.75rem;
+    height: 0.75rem;
     border-radius: 50%;
-    display: inline-block;
+    margin: 0 auto;
+
+
+    background-color: var(--bulma-grey);
 }
+/* Modified in role-block:last-child*/
+
 
 .exp-line {
     display: block;
-    width: 0.3rem;
-    border-radius: 0.15rem;
+    width: 0.25rem;
     height: calc(100%);
-    margin: 0 auto;
+    margin: calc(0.3rem + 0.5em) auto 0.3rem;
+    border-radius: 0.25rem;
+
+    background-color: var(--bulma-grey-light);
+}
+
+
+.exp-block .role-block:last-child .exp-line {
+    height: 95%;
+    background: linear-gradient(var(--bulma-grey-light) 70%, var(--bulma-primary), 95%, transparent);
 }
 
 
 
-
-.exp-details {
-    height: fit-content;
+.role-block {
+    margin-bottom: 0 !important;
 }
 
+
+.role-block:not(:first-child) .exp-dot { /*Mini-dot*/
+    width: 0.5rem;
+    height: 0.5rem;
+
+    box-shadow: 0 0 0.5rem 1px var(--bulma-primary);
+}
+
+
+
+.taf-block .columns {
+    margin-bottom: 0.9rem;
+}
+
+.taf-block .columns:first-child {
+    margin-bottom: 0;
+}
+
+/*Mobile*/
+@media screen and (max-width: 768px) {
+    .exp-block {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    /* Disable right headers */
+    .has-text-right {
+        text-align: left !important;
+    }
+
+    /* Disable title spacer when in single column view */
+    .top-sec > div > .columns:first-child .is-6{
+        display: none;
+    }
+
+    .exp-header {
+        padding-bottom: 0;
+    }
+
+    .exp-line-block {
+        padding-top: 0;
+    }
+
+    .exp-header .tag {
+        margin-left: 2rem;
+    }
+
+    .exp-line-block:has(.exp-details .subtitle) .exp-trail{
+        margin-top: -1.5rem;
+    }
+
+    .exp-header:not(:has(.subtitle)) .title {
+       margin-bottom: 0.25em;
+    }
+
+
+    .taf-block .column.is-4{
+        padding-bottom: 0.5em;
+    }
+
+    .taf-block .column.is-6{
+        padding-top: 0;
+        padding-bottom: 0.25em;
+    }
+
+    .taf-block .column.is-6 .mt-2{
+        margin-top: 0 !important;
+    }
+
+    .taf-block .column.is-6 .tags{
+        margin-bottom: 1rem;
+    }
+
+    .taf-block .column.is-6 .subtitle{
+        margin-left: 0.1em;
+    }
+}
