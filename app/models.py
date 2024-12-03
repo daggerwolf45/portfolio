@@ -1,7 +1,12 @@
-from typing import Optional
+from enum import Enum
+from typing import Annotated, Optional
 
 from pydantic import BaseModel, Field, HttpUrl
 
+
+######
+#   Work Experience
+####
 
 class Company(BaseModel):
     name: str
@@ -59,5 +64,47 @@ class Job(BaseModel):
 
         return cls.model_validate(data)
 
+
+######
+#   Programming Languages
+####
+class Proficiency(str, Enum):
+    strong = 'Strong Experience'
+    moderate = 'Moderate Experience'
+    light = 'Light Experience'
+
+
+class ProgLang(BaseModel):
+    name: str
+    icon_url: Optional[str] = Field(default=None)
+
+
+class LangExperience(BaseModel):
+    name: Annotated[str, Proficiency]
+    langs: list[ProgLang]
+
+    @classmethod
+    def from_yaml(cls, data: dict) -> list["LangExperience"]:
+        levels = []
+        for strength in data:
+            key = list(strength.keys())[0]
+            lis = []
+            for lang in strength[key]:
+                lis.append(ProgLang.model_validate(lang))
+            levels.append(LangExperience(name=Proficiency[key], langs=lis))
+        return levels
+
+
+######
+#   Skills
+####
+class Skill(BaseModel):
+    name: str
+
+
+class SkillCategory(BaseModel):
+    name: str
+    items: list[Skill] = Field(default=[])
+    subtypes: Optional[list['SkillCategory']] = Field(default=None)
 
 

@@ -18,6 +18,7 @@ class Config:
     data_dir = script_directory / "resources" / "data"
 
     we_filename = "work_experience.yaml"
+    skills_filename = "skill_experience.yaml"
 
 
 

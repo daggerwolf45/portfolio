@@ -81,7 +81,7 @@ async def index(std: standard_dep):
 
 # Portfolio
 @page_router.get('/portfolio', response_class=HTMLResponse)
-async def portfolio(std: standard_dep, experience: Annotated[list[Job], Depends(ResourceManager.get_we)]):
+async def portfolio(std: standard_dep, experience: Annotated[list[Job], Depends(ResourceManager.get_all_exp)]):
     return await page_response(std, "portfolio", title='Sam Laird - Portfolio', experience=experience)
 
 

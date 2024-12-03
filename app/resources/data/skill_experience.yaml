@@ -1,0 +1,103 @@
+lang:
+  - strong:
+    - name: "Python"
+      icon_url: "https://cdn.icon-icons.com/icons2/2699/PNG/512/python_logo_icon_168886.png"
+    - name: "Java"
+      icon_url: "https://favtutor.com/resources/images/uploads/Java_logo.png"
+    - name: "Bash"
+      icon_url: "https://raw.githubusercontent.com/odb/official-bash-logo/refs/heads/master/assets/Logos/Icons/PNG/128x128.png"
+  - moderate:
+      - name: "Typescript"
+        icon_url: "https://icons.veryicon.com/png/o/business/vscode-program-item-icon/typescript.png"
+      - name: "Javascript"
+        icon_url: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+      - name: "C"
+        icon_url: "https://cdn.iconscout.com/icon/free/png-256/c-58-1175247.png"
+      - name: "C++"
+        icon_url: "https://sdtimes.com/wp-content/uploads/2018/03/cpppp-490x490.png"
+  - light:
+      - name: "Zig"
+        icon_url: "https://raw.githubusercontent.com/github/explore/b28ef5e65d2d582ab36c30e3e2068721e71625e4/topics/zig/zig.png"
+      - name: "Flutter"
+        icon_url: "https://seekicon.com/free-icon-download/flutter_2.png"
+      - name: "Matlab"
+        icon_url: "https://b.zol-img.com.cn/soft/6/377/ce6Qo67Jyy5Sc.png"
+      - name: "Verilog / VHDL"
+        icon_url: "https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_verilog_icon_130092.png"
+      - name: "Swift"
+        icon_url: "https://cdn-icons-png.flaticon.com/512/5968/5968371.png"
+tk:
+  - name: "API Servers"
+    items:
+      - name: "Flask"
+      - name: "Quart"
+      - name: "FastAPI"
+      - name: "Django"
+      - name: "React"
+  - name: "Web Servers"
+    items:
+      - name: "Gunicorn"
+      - name: "Socketify.py"
+      - name: "Nginx"
+      - name: "Apache"
+  - name: "Runtimes"
+    subtypes:
+      - name: "Python"
+        items:
+          - name: "PyPy"
+      - name: "Javascript"
+        items:
+          - name: "Node.JS"
+          - name: "Bun"
+  - name: "User Interfaces/Graphics"
+    items:
+      - name: "JavaFX"
+      - name: "Swing"
+      - name: "Bulma"
+      - name: "A Lot of vanilla HTML/CSS/JS"
+  - name: "Data Management"
+    subtypes:
+      - name: "SQL"
+        items:
+          - name: "PostgreSQL"
+          - name: "MySQL"
+          - name: "SQLite"
+          - name: "Apache Derby"
+      - name: "DBMS"
+        items:
+          - name: "JDBM"
+          - name: "SQLAlchemy"
+          - name: "SQLModel"
+  - name: "Virtualization"
+    subtypes:
+      - name: "Virtualization"
+        items:
+          - name: "QEMU"
+          - name: "Libvirt"
+      - name: "Hypervisors"
+        items:
+          - name: "Proxmox"
+  - name: "Containers"
+    items:
+      - name: "Docker"
+  - name: "Embedded Systems"
+    items:
+      - name: "Arm"
+      - name: "MSP430"
+      - name: "ESP32"
+      - name: "ESP-01"
+      - name: "ESP8266"
+  - name: "Operating Systems"
+    items:
+      - name: "Windows 10/11"
+      - name: "Mac OS"
+      - name: "Ubuntu"
+      - name: "Arch"
+      - name: "Debian"
+      - name: "Alpine"
+    subtypes:
+      - name: "PCB Design"
+        items:
+          - name: "Altium"
+
+

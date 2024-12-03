@@ -6,7 +6,7 @@ import yaml
 #from app.db.engine import Interface
 from app.config import conf
 from app.md import RenderedMarkdown
-from app.models import Job
+from app.models import Job, LangExperience, ProgLang, SkillCategory
 
 
 class blog_stub:
@@ -36,6 +36,9 @@ class ResourceManager:
     _blogs: dict[str, blog_stub] = {}
     _blog_list: list[blog_stub]
     _work_experience: list[Job]
+    _lang_experience: list[LangExperience]
+    _skills_list: list[SkillCategory]
+
 
     def __new__(cls):
         if cls._instance is None:
@@ -49,6 +52,7 @@ class ResourceManager:
     def reload_cache(cls):
         cls.generate_blogs()
         cls.generate_we()
+        cls.generate_skills()
         return
 
 
@@ -81,7 +85,6 @@ class ResourceManager:
 
     @classmethod
     def generate_we(cls):
-        data = {}
         exp = []
         with open(conf.data_dir / conf.we_filename, 'r') as f:
             data = yaml.load(f, Loader=yaml.Loader)
@@ -91,6 +94,21 @@ class ResourceManager:
 
         cls._work_experience = exp
 
+    @classmethod
+    def generate_skills(cls):
+        skills = []
+        with open(conf.data_dir / conf.skills_filename, 'r') as f:
+            data = yaml.load(f, Loader=yaml.Loader)
+
+        # Langs
+        langs = LangExperience.from_yaml(data['lang'])
+
+        # Skills
+        for skill in data['tk']:
+            skills.append(SkillCategory.model_validate(skill))
+
+        cls._lang_experience = langs
+        cls._skills_list = skills
 
 
     @classmethod
@@ -129,4 +147,23 @@ class ResourceManager:
     @classmethod
     def get_we(cls) -> list[Job]:
         return cls._work_experience
+
+    @classmethod
+    def get_skills(cls) -> list[SkillCategory]:
+        return cls._skills_list
+
+    @classmethod
+    def get_lang_levels(cls) -> dict[str, list[ProgLang]]:
+        return cls._lang_experience
+
+
+    @classmethod
+    def get_all_exp(cls):
+        all = {
+            "work": cls._work_experience,
+            "lang": cls._lang_experience,
+            "skills": cls._skills_list,
+        }
+        return all
+
 

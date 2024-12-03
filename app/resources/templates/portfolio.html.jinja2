@@ -27,7 +27,7 @@
             </div>
 
 
-            {% for exp in experience %}
+            {% for exp in experience.work %}
                 <div class="block exp-block">
                     <div class="role-block columns is-centered is-6">
                         <div class="column is-4 has-text-right exp-header">
@@ -107,8 +107,7 @@
             <!-- End of Work History -->
         </div>
 
-
-        <div>
+        <div class="lang-block">
             <div class="columns is-centered is-6 pt-5">
                 <div class="column is-4 has-text-right">
                     <p class="title is-3">Languages</p>
@@ -116,142 +115,31 @@
                 <div class="column is-6"></div>
             </div>
 
-            <div class="block columns is-centered is-6 mb-3">
-                <div class="column is-4 has-text-right">
-                    <p class="title is-4 has-text-weight-semibold">Strong Experience</p>
-                </div>
-                <div class="column is-6">
-                    <div class="columns is-5 has-text-centered ">
-                        <div class="column is-narrow">
-                            <div class="box">
-                                <figure class="image is-square is-64x64">
-                                    <img alt="python" src="https://cdn.icon-icons.com/icons2/2699/PNG/512/python_logo_icon_168886.png" />
-                                </figure>
-                                <p class="subtitle is-6">Python</p>
-                            </div>
-                        </div>
+            {% for level in experience.lang %}
+                <div class="block columns is-centered is-6 mb-3">
+                    <div class="column is-4 has-text-right">
+                        <p class="title is-4 has-text-weight-semibold">{{ level.name }}</p>
+                    </div>
 
-                        <div class="column is-narrow ">
-                            <div class="box">
-                                <figure class="image is-square is-64x64">
-                                    <img alt="Java" src="https://favtutor.com/resources/images/uploads/Java_logo.png" />
-                                </figure>
-                                <p class="subtitle is-6">Java</p>
+                    <div class="column is-6">
+                        <div class="columns is-5 has-text-centered ">
+                        {% for lang in level.langs %}
+                            <div class="column is-narrow">
+                                <div class="box">
+                                    <figure class="image is-square is-64x64">
+                                        <img alt="{{ lang.name }}" src="{{ lang.icon_url }}" />
+                                    </figure>
+                                    <p class="subtitle is-6">{{ lang.name }}</p>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="column is-narrow">
-                            <div class="box">
-                                <figure class="image is-square is-64x64">
-                                    <img alt="Bash" src="https://raw.githubusercontent.com/odb/official-bash-logo/refs/heads/master/assets/Logos/Icons/PNG/128x128.png" />
-                                </figure>
-                                <p class="subtitle is-6">Bash</p>
-                            </div>
+                        {% endfor %}
                         </div>
                     </div>
+
                 </div>
-            </div>
-
-            <div class="block columns is-centered is-6 mb-3">
-                <div class="column is-4 has-text-right">
-                    <p class="title is-4 has-text-weight-semibold">Moderate Experience</p>
-                </div>
-                <div class="column is-6">
-                    <div class="columns is-5 has-text-centered">
-                        <div class="column is-narrow">
-                            <div class="box">
-                                <figure class="image is-square is-64x64">
-                                    <img alt="Typescript" src="https://icons.veryicon.com/png/o/business/vscode-program-item-icon/typescript.png" />
-                                </figure>
-                                <p class="subtitle is-6">Typescript</p>
-                            </div>
-                        </div>
-
-                        <div class="column is-narrow">
-                            <div class="box">
-                                <figure class="image is-square is-64x64">
-                                    <img alt="Javascript" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" />
-                                </figure>
-                                <p class="subtitle is-6">Javascript</p>
-                            </div>
-                        </div>
-
-                        <div class="column is-narrow">
-                            <div class="box">
-                                <figure class="image is-square is-64x64">
-                                    <img alt="C" src="https://cdn.iconscout.com/icon/free/png-256/c-58-1175247.png" />
-                                </figure>
-                                <p class="subtitle is-6">C</p>
-                            </div>
-                        </div>
-
-                        <div class="column is-narrow">
-                            <div class="box">
-                                <figure class="image is-square is-64x64">
-                                    <img alt="C++" src="https://sdtimes.com/wp-content/uploads/2018/03/cpppp-490x490.png" />
-                                </figure>
-                                <p class="subtitle is-6">C++</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="block columns is-centered is-6">
-                <div class="column is-4 has-text-right">
-                    <p class="title is-4 has-text-weight-semibold">Light Experience</p>
-                </div>
-                <div class="column is-6">
-                    <div class="columns is-5 has-text-centered">
-                        <div class="column is-narrow">
-                            <div class="box">
-                                <figure class="image is-square is-64x64">
-                                    <img alt="Zig" src="https://raw.githubusercontent.com/github/explore/b28ef5e65d2d582ab36c30e3e2068721e71625e4/topics/zig/zig.png" />
-                                </figure>
-                                <p class="subtitle is-6">Zig</p>
-                            </div>
-                        </div>
-
-                        <div class="column is-narrow">
-                            <div class="box">
-                                <figure class="image is-square is-64x64">
-                                    <img alt="Flutter" src="https://seekicon.com/free-icon-download/flutter_2.png" />
-                                </figure>
-                                <p class="subtitle is-6">Flutter</p>
-                            </div>
-                        </div>
-
-                        <div class="column is-narrow">
-                            <div class="box">
-                                <figure class="image is-square is-64x64">
-                                    <img alt="Matlab" src="https://b.zol-img.com.cn/soft/6/377/ce6Qo67Jyy5Sc.png" />
-                                </figure>
-                                <p class="subtitle is-6">Matlab</p>
-                            </div>
-                        </div>
-
-                        <div class="column is-narrow">
-                            <div class="box">
-                                <figure class="image is-square is-64x64">
-                                    <img alt="Verilog / VHDsh" src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_verilog_icon_130092.png" />
-                                </figure>
-                                <p class="subtitle is-6">Verilog / VHDL</p>
-                            </div>
-                        </div>
-
-                        <div class="column is-narrow">
-                            <div class="box">
-                                <figure class="image is-square is-64x64">
-                                    <img alt="Swift" src="https://cdn-icons-png.flaticon.com/512/5968/5968371.png" />
-                                </figure>
-                                <p class="subtitle is-6">Swift</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
+
 
         <div class="taf-block">
             <div class="columns is-centered is-6 pt-5">
@@ -261,174 +149,35 @@
                 <div class="column is-6"></div>
             </div>
 
-            <div class="columns is-centered is-6">
-                <div class="column is-4 has-text-right">
-                    <p class="title is-4 has-text-weight-semibold">API Servers</p>
-                </div>
-                <div class="column is-6">
-                    <div class="block">
-                        <div class="tags are-medium">
-                            <span class="tag">Flask</span>
-                            <span class="tag">Quart</span>
-                            <span class="tag">FastAPI</span>
-                            <span class="tag">Django</span>
-                            <span class="tag">React</span>
+            {% for cat in experience.skills %}
+                <div class="columns is-centered is-6">
+                    <div class="column is-4 has-text-right">
+                        <p class="title is-4 has-text-weight-semibold">{{ cat.name }}</p>
+                    </div>
+                    <div class="column is-6">
+                        <div class="block">
+                            {% if cat.items|length > 0 %}
+                                <div class="tags are-medium">
+                                {% for item in cat.items %}
+                                    <span class="tag">{{ item.name }}</span>
+                                {% endfor %}
+                                </div>
+                            {% endif %}
+
+                            {% if cat.subtypes is not none %}
+                                {% for sub in cat.subtypes %}
+                                <p class="subtitle is-6 has-font-weight-medium is-italic mb-2">{{ sub.name }}</p>
+                                <div class="tags are-medium">
+                                    {% for item in sub.items %}
+                                        <span class="tag">{{ item.name }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% endfor %}
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="columns is-centered is-6">
-                <div class="column is-4 has-text-right">
-                    <p class="title is-4 has-text-weight-semibold">Web Servers</p>
-                </div>
-                <div class="column is-6">
-                    <div class="block">
-                        <div class="tags are-medium">
-                            <span class="tag">Gunicorn</span>
-                            <span class="tag">Socketify.py</span>
-                            <span class="tag">Nginx</span>
-                            <span class="tag">Apache</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="columns is-centered is-6">
-                <div class="column is-4 has-text-right">
-                    <p class="title is-4 has-text-weight-semibold">Runtimes</p>
-                </div>
-                <div class="column is-6">
-                    <div class="block mt-2">
-                        <p class="subtitle is-6 has-font-weight-medium is-italic mb-2">Python</p>
-                        <div class="tags are-medium mb-3">
-                            <span class="tag">PyPy</span>
-                        </div>
-
-                        <p class="subtitle is-6 has-font-weight-medium is-italic mb-2">Javascript</p>
-                        <div class="tags are-medium">
-                            <span class="tag">Node.JS</span>
-                            <span class="tag">Bun</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="columns is-centered is-6">
-                <div class="column is-4 has-text-right">
-                    <p class="title is-4 has-text-weight-semibold">User Interfaces/Graphics</p>
-                </div>
-                <div class="column is-6">
-                    <div class="block">
-                        <div class="tags are-medium">
-                            <span class="tag">JavaFX</span>
-                            <span class="tag">Swing</span>
-                            <span class="tag">Bulma</span>
-                            <span class="tag">A Lot of raw HTML/CSS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="columns is-centered is-6">
-                <div class="column is-4 has-text-right">
-                    <p class="title is-4 has-text-weight-semibold">Databases</p>
-                </div>
-                <div class="column is-6">
-                    <div class="block mt-2">
-                        <p class="subtitle is-6 has-font-weight-medium is-italic mb-2">SQL</p>
-                        <div class="tags are-medium mb-3">
-                            <span class="tag">PostgreSQL</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">SQLite</span>
-                            <span class="tag">Apache Derby</span>
-                        </div>
-
-                        <p class="subtitle is-6 has-font-weight-medium is-italic mb-2">DBMS</p>
-                        <div class="tags are-medium">
-                            <span class="tag">JDBM</span>
-                            <span class="tag">SQLAlchemy</span>
-                            <span class="tag">SQLModel</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="columns is-centered is-6">
-                <div class="column is-4 has-text-right">
-                    <p class="title is-4 has-text-weight-semibold">Containers & VMs</p>
-                </div>
-                <div class="column is-6">
-                    <div class="block mt-2">
-                        <p class="subtitle is-6 has-font-weight-medium is-italic mb-2">Virtualization</p>
-                        <div class="tags are-medium mb-3">
-                            <span class="tag">Qemu</span>
-                            <span class="tag">Libvirt</span>
-                            <span class="tag">Proxmox</span>
-                        </div>
-
-                        <p class="subtitle is-6 has-font-weight-medium is-italic mb-2">Containers</p>
-                        <div class="tags are-medium">
-                            <span class="tag">Docker</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="columns is-centered is-6">
-                <div class="column is-4 has-text-right">
-                    <p class="title is-4 has-text-weight-semibold">Embedded Systems</p>
-                </div>
-                <div class="column is-6">
-                    <div class="block">
-                        <div class="tags are-medium">
-                            <span class="tag">Arm</span>
-                            <span class="tag">MSP430</span>
-                            <span class="tag">Arm-V8</span>
-                            <span class="tag">ESP32</span>
-                            <span class="tag">ESP-01</span>
-                            <span class="tag">ESP8266</span>
-                            <span class="tag">MIPS32</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="columns is-centered is-6">
-                <div class="column is-4 has-text-right">
-                    <p class="title is-4 has-text-weight-semibold">Operating Systems</p>
-                </div>
-                <div class="column is-6">
-                    <div class="block">
-                        <div class="tags are-medium">
-                            <span class="tag">Windows 10/11</span>
-                            <span class="tag">Mac OS</span>
-                        </div>
-
-                        <p class="subtitle is-6 has-font-weight-medium is-italic mb-2">Linux</p>
-                        <div class="tags are-medium">
-                            <span class="tag">Ubuntu</span>
-                            <span class="tag">Debian</span>
-                            <span class="tag">Alpine</span>
-                            <span class="tag">Arch</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="columns is-centered is-6">
-                <div class="column is-4 has-text-right">
-                    <p class="title is-4 has-text-weight-semibold">CAD</p>
-                </div>
-                <div class="column is-6">
-                    <div class="block mt-2">
-                        <p class="subtitle is-6 has-font-weight-medium is-italic mb-2">PCB Design</p>
-                        <div class="tags are-medium mb-3">
-                            <span class="tag">Altium</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
 
