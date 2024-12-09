@@ -105,7 +105,7 @@ class ResourceManager:
 
         # Skills
         for skill in data['tk']:
-            skills.append(SkillCategory.model_validate(skill))
+            skills.append(SkillCategory.from_yaml(skill))
 
         cls._lang_experience = langs
         cls._skills_list = skills
@@ -153,12 +153,15 @@ class ResourceManager:
         return cls._skills_list
 
     @classmethod
-    def get_lang_levels(cls) -> dict[str, list[ProgLang]]:
+    def get_lang_levels(cls) -> list["LangExperience"]:
         return cls._lang_experience
 
 
     @classmethod
     def get_all_exp(cls):
+        #TODO DISABLE AFTER TESTING
+        cls.reload_cache()
+
         all = {
             "work": cls._work_experience,
             "lang": cls._lang_experience,

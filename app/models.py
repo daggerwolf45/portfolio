@@ -100,11 +100,23 @@ class LangExperience(BaseModel):
 ####
 class Skill(BaseModel):
     name: str
+    hint: Optional[str] = Field(default=None)
+    link: Optional[HttpUrl] = Field(default=None)
 
 
 class SkillCategory(BaseModel):
-    name: str
-    items: list[Skill] = Field(default=[])
-    subtypes: Optional[list['SkillCategory']] = Field(default=None)
+    name: Optional[str] = Field(default=None)
+    items: Optional[list[Skill]] = Field(default=None)
+    subtypes: Optional[list['SkillCategory']] = None
 
+    @classmethod
+    def from_yaml(cls, data: dict) -> "SkillCategory":
+        if not data.get("subtypes", False):
+            data['subtypes'] = []
 
+        if data.get("items", False):
+            default_subtype = cls(items=data['items'])
+            data['subtypes'].append(default_subtype)
+            data['items'] = None
+
+        return cls.model_validate(data)

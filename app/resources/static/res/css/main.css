@@ -12,10 +12,19 @@
     background: transparent;
 }
 
+.navbar-menu.is-active {
+    background: transparent;
+    box-shadow: none;
+}
+
 @media (prefers-color-scheme: light) {
     .has-background-blur {
         backdrop-filter: var(--blur) brightness(110%) !important;
-        -webkit-backdrop-filter: var(--blur) brightness(110%);
+        /*-webkit-backdrop-filter: var(--blur) brightness(110%);*/
+    }
+
+    .navbar-menu.is-active {
+        backdrop-filter: var(--blur) brightness(110%) !important;
     }
 }
 
@@ -23,7 +32,11 @@
 @media (prefers-color-scheme: dark) {
     .has-background-blur {
         backdrop-filter: var(--blur) brightness(90%) !important;
-        -webkit-backdrop-filter: var(--blur) brightness(90%);
+        /*-webkit-backdrop-filter: var(--blur) brightness(90%);*/
+    }
+
+    .navbar-menu.is-active {
+        backdrop-filter: var(--blur) brightness(90%) !important;
     }
 }
 
@@ -50,6 +63,7 @@
     body.has-navbar-fixed-top {
         padding-top: calc(var(--bulma-navbar-height) + var(--navbar-offset));
     }
+
     .navbar {
         margin: var(--navbar-offset) 5rem;
     }
@@ -69,6 +83,14 @@
 
     body.has-navbar-fixed-top:has(#landing-greeting) {
         padding-top: 0;
+    }
+
+}
+
+/* Mobile/Tablet Settings */
+@media screen and (max-width: 1024px) {
+    .navbar {
+        border-radius: 0;
     }
 
 }

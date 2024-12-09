@@ -1,7 +1,7 @@
 from typing import Annotated
 
 import humanize
-from fastapi import Depends, HTTPException
+from fastapi import BackgroundTasks, Depends, HTTPException
 
 from fastapi import APIRouter
 from jinja2 import TemplateNotFound
@@ -16,6 +16,7 @@ from app.models import Job
 from app.utils import truncate
 
 page_router = APIRouter()
+admin_router = APIRouter()
 
 
 class std_dep:
@@ -74,7 +75,8 @@ async def blog_response(common: std_dep,  markdown: RenderedMarkdown, **kw) -> _
 # Routes
 # Index
 @page_router.get('/', response_class=HTMLResponse)
-async def index(std: standard_dep):
+async def index(std: standard_dep, bg: BackgroundTasks):
+    bg.add_task(ResourceManager.reload_cache)
     return await page_response(std, "index", title='Sam Laird', ptext='Welcome!')
     #return await template_response(request, "index", title="Sam Laird", ptext="Hello World!", test_out=std.blogs)
 
@@ -119,3 +121,10 @@ async def get_blog(std: standard_dep, blog_id: str):
 
     return await blog_response(std, markdown)
 
+
+
+@admin_router.get('/reload')
+async def reload_cache():
+    # TODO restrict to local/signed-in users
+    ResourceManager.reload_cache()
+    return HTTPException(status_code=200)

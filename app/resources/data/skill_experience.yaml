@@ -80,6 +80,10 @@ tk:
   - name: "Containers"
     items:
       - name: "Docker"
+  - name: "Firewalls"
+    items:
+      - name: "PFSense"
+      - name: "OPNSense"
   - name: "Embedded Systems"
     items:
       - name: "Arm"
@@ -87,6 +91,23 @@ tk:
       - name: "ESP32"
       - name: "ESP-01"
       - name: "ESP8266"
+  - name: "Wireless Infrastructure"
+    subtypes:
+        - name: "Traditional Wifi"
+          items:
+            - name: "Meraki"
+            - name: "Ruckus"
+            - name: "Ubiquity"
+            - name: "OpenWRT"
+        - name: "IOT"
+          items:
+            - name: "ZWave"
+            - name: "Zigbee"
+            - name: "Thread"
+        - name: "Remote Mesh"
+          items:
+            - name: "Doodlelabs Mesh Rider"
+              link: "https://doodlelabs.com/products/mesh-rider-radios/"
   - name: "Operating Systems"
     items:
       - name: "Windows 10/11"
@@ -95,9 +116,14 @@ tk:
       - name: "Arch"
       - name: "Debian"
       - name: "Alpine"
+  - name: "CAD"
     subtypes:
       - name: "PCB Design"
         items:
           - name: "Altium"
+  - name: "Misc"
+    items:
+      - name: "Git"
+      - name: "x86 Assembly"
 
 

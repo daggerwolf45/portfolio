@@ -18,6 +18,9 @@
 {% block page %}
     <section class="section container top-sec">
 
+{#
+        Work Experience
+#}
         <div class="work-block">
             <div class="columns is-centered is-6 pt-5">
                 <div class="column is-4 has-text-right">
@@ -103,10 +106,12 @@
                     {% endif %}
                 </div>
             {% endfor %}
-
-            <!-- End of Work History -->
         </div>
 
+
+{#
+        Programming Languages
+#}
         <div class="lang-block">
             <div class="columns is-centered is-6 pt-5">
                 <div class="column is-4 has-text-right">
@@ -122,7 +127,7 @@
                     </div>
 
                     <div class="column is-6">
-                        <div class="columns is-5 has-text-centered ">
+                        <div class="columns has-text-centered is-mobile is-multiline-tablet lang-container">
                         {% for lang in level.langs %}
                             <div class="column is-narrow">
                                 <div class="box">
@@ -141,6 +146,9 @@
         </div>
 
 
+{#
+        Skills
+#}
         <div class="taf-block">
             <div class="columns is-centered is-6 pt-5">
                 <div class="column is-4 has-text-right">
@@ -156,22 +164,21 @@
                     </div>
                     <div class="column is-6">
                         <div class="block">
-                            {% if cat.items|length > 0 %}
-                                <div class="tags are-medium">
-                                {% for item in cat.items %}
-                                    <span class="tag">{{ item.name }}</span>
-                                {% endfor %}
-                                </div>
-                            {% endif %}
-
                             {% if cat.subtypes is not none %}
                                 {% for sub in cat.subtypes %}
-                                <p class="subtitle is-6 has-font-weight-medium is-italic mb-2">{{ sub.name }}</p>
-                                <div class="tags are-medium">
-                                    {% for item in sub.items %}
-                                        <span class="tag">{{ item.name }}</span>
-                                    {% endfor %}
-                                </div>
+                                    {% if sub.name is not none %}
+                                        <p class="subtitle is-6 has-font-weight-medium is-italic mb-2">{{ sub.name }}</p>
+                                    {% endif %}
+
+                                    <div class="tags are-medium">
+                                        {% for item in sub.items %}
+                                            {% if item.link is not none %}
+                                                <a class="tag" href="{{ item.link }}">{{ item.name }}</a>
+                                            {% else %}
+                                                <span class="tag">{{ item.name }}</span>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
                                 {% endfor %}
                             {% endif %}
                         </div>
