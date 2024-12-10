@@ -60,28 +60,29 @@
 
 /* Languages */
 .lang-container {
-
+    column-gap: 0.5rem;
+    row-gap: 1rem;
+    --bulma-grid-column-min: 7.5rem;
 }
 
-
-.lang-container .column {
-    --lang-box-size: 10rem;
-    padding: 1rem;
-
-    width: var(--lang-box-size) !important;
-    height: var(--lang-box-size) !important;
+.lang-container .cell {
+    width: max-content;
+    height: min-content;
+    text-align: center;
 }
 
 .lang-container .box {
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    align-content: center;
+    padding: 1rem;
+}
+
+.lang-container .subtitle {
+    margin-top: 0.5rem;
 }
 
 .lang-container .image {
     margin: 0 auto;
 }
+
 
 
 /* Skills */
@@ -134,29 +135,7 @@
 
 
 
-    .lang-block .column:has(.lang-container) {
-        padding-top: 0;
-    }
 
-    .lang-block .block {
-        width: 96%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .lang-container {
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        margin: 0 auto;
-
-        overflow-x: auto;
-        -webkit-mask: initial;
-        mask: initial;
-    }
-
-    .lang-container .column {
-        --lang-box-size: 9rem;
-    }
 
 
 

@@ -1,0 +1,11 @@
+Markdown>=3.7
+fastapi>=0.115.6
+starlette>=0.41.3
+PyYAML>=6.0.2
+pydantic>=2.10.3
+humanize>=4.10.0
+Jinja2>=3.1.4
+pydantic-settings>=2.6.1
+httptools>=0.6.1
+pyaml>=24.9.0
+typing-extensions>=4.12.2
