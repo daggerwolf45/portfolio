@@ -76,7 +76,7 @@ class Proficiency(str, Enum):
 
 class ProgLang(BaseModel):
     name: str
-    icon_url: Optional[str] = Field(default=None)
+    icon_name: Optional[str] = Field(default=None)
 
 
 class LangExperience(BaseModel):

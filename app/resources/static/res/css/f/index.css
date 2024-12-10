@@ -19,7 +19,9 @@
 #headshot img {
     height: 100%;
     max-width: fit-content;
+    min-width: fit-content;
 }
+
 
 
 .testimonial .media .media-content {

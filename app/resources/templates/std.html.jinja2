@@ -1,9 +1,15 @@
 {% extends "base.html.jinja2" %}
 {% block common_head %}
-    <!-- Fonts -->
+    <!-- PreConnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..800&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous">
+
+    <link rel="prefetch" href="/portfolio">
+    <link rel="prefetch" href="{{ url_for('static', path='/res/css/f/portfolio.css') }}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..800&display=swap" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -42,30 +48,12 @@
                         Portfolio
                     </a>
                     <a class="navbar-item is-family-secondary has-text-weight-bold" href="/works">
-                        Works
+                        Personal
                     </a>
 
-{#                    <div class="navbar-item has-dropdown is-hoverable is-family-secondary has-text-weight-bold">#}
-{#                        <a class="navbar-link is-arrowless" href="/blog">#}
-{#                            Blog#}
-{#                        </a>#}
-{##}
-{#                        <div class="navbar-dropdown">#}
-{#                            {% for entry in latest_blogs %}#}
-{#                                <a class="navbar-item" href="{{ '/blog/' + entry[1] }}">#}
-{#                                    {{ entry[0] }}#}
-{#                                </a>#}
-{#                            {% endfor %}#}
-{#                            <hr class="navbar-divider">#}
-{#                            <div class="navbar-item">#}
-{#                                Updated {{ last_blog_published_time }}#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
-
-                    <a class="navbar-item is-family-secondary has-text-weight-bold">
-                        Resources
-                    </a>
+{#                    <a class="navbar-item is-family-secondary has-text-weight-bold">#}
+{#                        Resources#}
+{#                    </a>#}
 
                     <div class="navbar-item">
                         <div class="field is-grouped">

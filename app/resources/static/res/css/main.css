@@ -18,6 +18,14 @@
 }
 
 @media (prefers-color-scheme: light) {
+    .has-background-s0 {
+        background-color: var(--bulma-white);
+    }
+
+    .has-background-s1 {
+        background-color: var(--bulma-white-ter);
+    }
+
     .has-background-blur {
         backdrop-filter: var(--blur) brightness(110%) !important;
         /*-webkit-backdrop-filter: var(--blur) brightness(110%);*/
@@ -30,6 +38,14 @@
 
 
 @media (prefers-color-scheme: dark) {
+    .has-background-s0 {
+        background-color: var(--bulma-black);
+    }
+
+    .has-background-s1 {
+        background-color: var(--bulma-black-ter);
+    }
+
     .has-background-blur {
         backdrop-filter: var(--blur) brightness(90%) !important;
         /*-webkit-backdrop-filter: var(--blur) brightness(90%);*/

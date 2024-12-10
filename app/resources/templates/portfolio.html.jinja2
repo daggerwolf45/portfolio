@@ -132,7 +132,7 @@
                             <div class="cell">
                                 <div class="box">
                                     <figure class="image is-square is-64x64">
-                                        <img alt="{{ lang.name }}" src="{{ lang.icon_url }}" />
+                                        <img alt="{{ lang.name }}" src="{{ url_for('static', path='/res/img/' + lang.icon_name) }}" />
                                     </figure>
                                     <p class="subtitle is-6">{{ lang.name }}</p>
                                 </div>

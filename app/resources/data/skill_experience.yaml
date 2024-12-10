@@ -1,31 +1,31 @@
 lang:
   - strong:
     - name: "Python"
-      icon_url: "https://cdn.icon-icons.com/icons2/2699/PNG/512/python_logo_icon_168886.png"
+      icon_name: "python.webp"
     - name: "Java"
-      icon_url: "https://favtutor.com/resources/images/uploads/Java_logo.png"
+      icon_name: "java.webp"
     - name: "Bash"
-      icon_url: "https://raw.githubusercontent.com/odb/official-bash-logo/refs/heads/master/assets/Logos/Icons/PNG/128x128.png"
+      icon_name: "bash.webp"
   - moderate:
       - name: "Typescript"
-        icon_url: "https://icons.veryicon.com/png/o/business/vscode-program-item-icon/typescript.png"
+        icon_name: "ts.webp"
       - name: "Javascript"
-        icon_url: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+        icon_name: "js.webp"
       - name: "C"
-        icon_url: "https://cdn.iconscout.com/icon/free/png-256/c-58-1175247.png"
+        icon_name: 'c.webp'
       - name: "C++"
-        icon_url: "https://sdtimes.com/wp-content/uploads/2018/03/cpppp-490x490.png"
+        icon_name: "cpp.webp"
   - light:
       - name: "Zig"
-        icon_url: "https://raw.githubusercontent.com/github/explore/b28ef5e65d2d582ab36c30e3e2068721e71625e4/topics/zig/zig.png"
+        icon_name: "zig.webp"
       - name: "Flutter"
-        icon_url: "https://seekicon.com/free-icon-download/flutter_2.png"
+        icon_name: "flutter.webp"
       - name: "Matlab"
-        icon_url: "https://b.zol-img.com.cn/soft/6/377/ce6Qo67Jyy5Sc.png"
+        icon_name: "matlab.webp"
       - name: "Verilog"
-        icon_url: "https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_verilog_icon_130092.png"
+        icon_name: "verilog.webp"
       - name: "Swift"
-        icon_url: "https://cdn-icons-png.flaticon.com/512/5968/5968371.png"
+        icon_name: "swift.webp"
 tk:
   - name: "API Servers"
     items:
