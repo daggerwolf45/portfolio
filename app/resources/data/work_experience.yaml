@@ -32,3 +32,27 @@ jobs:
               - text: "Support for easy expandability and test groups"
           - text: "Assisted in FCC certification of wireless radio"
 
+  - company: {
+      name: "New England Chapel",
+      url: "https://nechapel.org"
+      }
+    roles:
+      - title: "Systems Administration"
+        start_date: "April/2022"
+        end_date: "May/2022"
+        details:
+          - text: "Planned and oversaw migration from Cisco Meraki to Ubiquiti"
+          - text: "Selected and deployed Security camera system"
+            sub_detail:
+              - text: "Mounted and cabled security cameras across office"
+              - text: "Setup NVR for retention and storage of video footage"
+              - text: "Support for easy expandability and test groups"
+          - text: "Deployed LDAP user accounting system"
+          - text: "Migrated staff WiFi to RADIUS authentication from WPA2-Personal"
+      - title: "IT Project Manager"
+        start_date: "May/2021"
+        end_date: "Sept/2021"
+        details:
+          - text: "Planned new and oversaw network deployment for new location"
+          - text: "Worked with staff to rebrand and establish modern online presence"
+
