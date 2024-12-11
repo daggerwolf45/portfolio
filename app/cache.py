@@ -3,7 +3,6 @@ from datetime import datetime
 from os import PathLike
 
 import yaml
-#from app.db.engine import Interface
 from app.config import conf
 from app.md import RenderedMarkdown
 from app.models import Job, LangExperience, ProgLang, SkillCategory

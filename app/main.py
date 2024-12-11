@@ -3,7 +3,6 @@ from fastapi import FastAPI
 from starlette.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
-from brotli_asgi import BrotliMiddleware
 
 from app.cache import ResourceManager
 from app.config import conf
@@ -34,6 +33,7 @@ app.add_middleware(
       allow_headers=["*"],
 )
 
+app.add_middleware(GZipMiddleware)
 #app.add_middleware(BrotliMiddleware, gzip_fallback=True)
 
 

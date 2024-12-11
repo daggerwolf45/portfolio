@@ -23,6 +23,10 @@
     }
 
     .has-background-s1 {
+        background-color: var(--bulma-white-bis);
+    }
+
+    .has-background-s2 {
         background-color: var(--bulma-white-ter);
     }
 
@@ -43,6 +47,10 @@
     }
 
     .has-background-s1 {
+        background-color: var(--bulma-black-bis);
+    }
+
+    .has-background-s2 {
         background-color: var(--bulma-black-ter);
     }
 

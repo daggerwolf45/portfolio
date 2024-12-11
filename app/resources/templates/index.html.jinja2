@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="{{ url_for('static', path='/res/css/f/index.css') }}" />
 {% endblock %}
 {% block page %}
-    <section id="landing-greeting" class="section top-sec has-background-s1">
+    <section id="landing-greeting" class="section top-sec has-background-s2">
         <div class="columns container">
             <div class="column is-4 is-offset-2">
                 <div id="greeting-details" class="block mt-6">
@@ -32,8 +32,12 @@
             </div>
         </div>
     </section>
-    <section id="testimonials" class="section">
 
+    <section id="about" class="section">
+
+    </section>
+
+    <section id="testimonials" class="section has-background-s1">
         <div class="columns container">
             <div class="column is-4 is-offset-2 is-flex is-flex-direction-column">
                     <div class="testimonial box columns is-2">
@@ -80,5 +84,13 @@
 
         </div>
     </section>
-    <link rel="prerender">
+
+    <section id="projects" class="section">
+
+    </section>
+
+    <section id="contact" class="section has-background-s1">
+
+    </section>
+
 {% endblock %}
