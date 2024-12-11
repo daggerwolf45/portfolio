@@ -15,3 +15,7 @@ jobs:
             sub_detail:
               - text: ""
           - text: ""
+        skills:
+          - category: ""
+            items:
+              - name: ""

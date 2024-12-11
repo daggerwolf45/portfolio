@@ -55,4 +55,12 @@ jobs:
         details:
           - text: "Planned new and oversaw network deployment for new location"
           - text: "Worked with staff to rebrand and establish modern online presence"
+        skills:
+          - class: "Software"
+            items:
+              - name: "OBS"
+              - name: "Twitch"
+              - name: "Facebook Live"
+              - name: "Youtube"
+
 

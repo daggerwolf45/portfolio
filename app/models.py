@@ -7,7 +7,6 @@ from pydantic import BaseModel, Field, HttpUrl
 ######
 #   Work Experience
 ####
-
 class Company(BaseModel):
     name: str
     url: Optional[HttpUrl] = Field(default=None)
@@ -21,11 +20,17 @@ class NestedDescription(Description):
     sub_detail: Optional[list["NestedDescription"]] = Field(default=None)
 
 
+class RoleSkillClass(BaseModel):
+    name: str = Field(validation_alias="class")
+    items: list["Skill"]
+
+
 class Role(BaseModel):
     title: str
     start_date: Optional[str] = Field(default=None)
     end_date: Optional[str] = Field(default=None)
     details: list[NestedDescription]
+    skills: Optional[list[RoleSkillClass]] = Field(default=None)
 
 
 class Job(BaseModel):

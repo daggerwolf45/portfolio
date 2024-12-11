@@ -12,6 +12,31 @@
     </li>
 {% endmacro %}
 
+{% macro render_role_skills(skills, title_text) %}
+{% if skills is not none %}
+    <div class="rs_container">
+    <span class="dummy_title title is-4 has-text-weight-semibold">{{ title_text }}</span>
+    <p class="title is-6 has-text-weight-normal">Skills</p>
+    <div class="rs_class_box">
+        {% for class in skills %}
+        <div class="rs_class">
+            <p class="subtitle is-6 has-text-weight-light has-text-grey">{{ class.name }}</p>
+            <div class="rs_tags tags are-small">
+                {% for tag in class.items %}
+                    {% if tag.link is not none %}
+                        <a class="tag" href="{{ tag.link }}">{{ tag.name }}</a>
+                    {% else %}
+                        <span class="tag">{{ tag.name }}</span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endif %}
+{% endmacro %}
+
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', path='/res/css/f/portfolio.css') }}" />
 {% endblock %}
@@ -45,6 +70,7 @@
                                 <p class="subtitle is-6 mb-2">
                                     <span class="is-italic">{{ exp.roles[0].title }}</span>
                                 </p>
+                                {{ render_role_skills(exp.roles[0].skills, exp.company.name) }}
                             {% endif %}
                         </div>
 
@@ -62,6 +88,7 @@
                                     <span class="tag is-rounded">
                                         {{ exp.start_date }} - {{ exp.end_date }}
                                     </span>
+
                                 {% endif %}
 
                                 <ul class="ml-4 mt-1">
@@ -81,6 +108,7 @@
                                 <span class="tag is-rounded">
                                     {{ role.start_date }} - {{ role.end_date }}
                                 </span>
+                                {{ render_role_skills(role.skills, exp.company.name) }}
                             </div>
 
                             <div class="column is-6 exp-line-block">

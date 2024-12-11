@@ -1,9 +1,29 @@
-
 .exp-line-block {
     display: flex !important;
     flex-direction: row;
 }
 /* Modified in role-block:last-child*/
+
+
+.rs_container {
+    justify-self: right;
+    position: relative;
+    right: 0;
+    justify-content: right;
+    width: fit-content;
+    display: none; !important;
+}
+
+.rs_container .dummy_title {
+    position: relative;
+    z-index: -1;
+    color: transparent !important;
+    height: 0;
+}
+
+.rs_class_box {
+    width: fit-content;
+}
 
 
 .exp-trail {
