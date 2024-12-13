@@ -19,9 +19,35 @@
 #headshot img {
     height: 100%;
     max-width: fit-content;
-    min-width: fit-content;
 }
 
+
+.txt-flip > .wrap {
+    border-right: 0.08em solid var(--bulma-grey)
+}
+
+.skill-block .title:first-child {
+    text-align: center;
+}
+
+.skill-block .box .title {
+    margin-bottom: 0.5rem;
+}
+
+.skill-block .box p:not(.title) {
+    margin: 0.5rem 1.2rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.skill-block .box .control:has(.button){
+    margin: 0.25rem auto 0;
+}
+
+.skill-block .control .button {
+    font-size: 1.1rem;
+    padding: 0.5rem 3rem;
+}
 
 
 .testimonial .media .media-content {

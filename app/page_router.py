@@ -1,4 +1,4 @@
-from typing import Annotated
+from typing import Annotated, Optional
 
 import humanize
 from fastapi import BackgroundTasks, Depends, HTTPException
@@ -38,6 +38,20 @@ jinja_loader = FileSystemLoader(conf.template_dir)
 jinja_env = Environment(trim_blocks=True, lstrip_blocks=True, autoescape=True, loader=jinja_loader, enable_async=False)
 templates = Jinja2Templates(env=jinja_env)
 
+
+class TestAdvDep:
+    def __call__(self, path:str = None) -> Optional[dict]:
+        if path is None:
+            print('No path!')
+            return None
+        print('<dep> Searching for:', path)
+        return ResourceManager.get_page_data(path)
+
+
+adv_dep = TestAdvDep()
+use_page_data = Annotated[Optional[dict], Depends(adv_dep)]
+
+
 async def template_response(request: Request, path:str, *, process_name=True, **kw) -> _TemplateResponse:
     if process_name and not path.endswith('.jinja2'):
         if path.endswith('.html'):
@@ -52,7 +66,9 @@ async def template_response(request: Request, path:str, *, process_name=True, **
         raise e
 
 
-async def page_response(common: std_dep, path: str, **kw) -> _TemplateResponse:
+async def page_response(common: std_dep, path: str, get_page_data: bool = True, **kw, ) -> _TemplateResponse:
+    if get_page_data:
+        kw['page'] = ResourceManager.get_page_data(path)
 
     return await template_response(
           request=common.request,
@@ -80,7 +96,7 @@ async def blog_response(common: std_dep,  markdown: RenderedMarkdown, **kw) -> _
 @page_router.get('/', response_class=HTMLResponse)
 async def index(std: standard_dep, bg: BackgroundTasks):
     bg.add_task(ResourceManager.reload_cache)
-    return await page_response(std, "index", title='Sam Laird', ptext='Welcome!')
+    return await page_response(std, "index", True, title='Sam Laird')
     #return await template_response(request, "index", title="Sam Laird", ptext="Hello World!", test_out=std.blogs)
 
 

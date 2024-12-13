@@ -2,6 +2,34 @@
     --navbar-offset: 1.25rem;
     --blur: blur(48px) saturate(0.9);
     scroll-behavior: smooth;
+    text-decoration-skip-ink: all;
+}
+
+#nav-mask {
+    --nav-blur: blur(15px) brightness(80%) saturate(70%) contrast(110%);
+    position: fixed;
+    z-index: 29;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc((var(--bulma-navbar-height) + var(--navbar-offset))*2);
+    background-color: rgba(0, 0, 0, 0%);
+    backdrop-filter: var(--nav-blur);
+
+
+    clip-path: xywh(5rem 1.25rem calc(100% - 10rem) calc(var(--bulma-navbar-height) + 2rem + 4px) round var(--bulma-radius-large));
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 20%);
+    backdrop-filter: contrast(90%) saturate(130%);
+}
+
+.navbar-brand .navbar-item {
+    gap: 0.5rem
+}
+.navbar-brand .navbar-item span::first-letter {
+    color: var(--bulma-primary);
 }
 
 .box.is-transparent {
@@ -17,6 +45,8 @@
     box-shadow: none;
 }
 
+
+
 @media (prefers-color-scheme: light) {
     .has-background-s0 {
         background-color: var(--bulma-white);
@@ -28,6 +58,10 @@
 
     .has-background-s2 {
         background-color: var(--bulma-white-ter);
+    }
+
+    #nav-mask {
+        backdrop-filter: var(--nav-blur) brightness(120%) !important;
     }
 
     .has-background-blur {
@@ -54,8 +88,12 @@
         background-color: var(--bulma-black-ter);
     }
 
+    #nav-mask {
+        backdrop-filter: var(--nav-blur) brightness(80%) !important;
+    }
+
     .has-background-blur {
-        backdrop-filter: var(--blur) brightness(90%) !important;
+        /*backdrop-filter: var(--blur) brightness(90%) !important;*/
         /*-webkit-backdrop-filter: var(--blur) brightness(90%);*/
     }
 

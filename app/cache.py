@@ -1,11 +1,15 @@
 import glob
+import json
 from datetime import datetime
 from os import PathLike
+from pathlib import Path
+from typing import Optional
 
 import yaml
 from app.config import conf
 from app.md import RenderedMarkdown
 from app.models import Job, LangExperience, ProgLang, SkillCategory
+from app.utils import dump_json, seek_and_parse
 
 
 class blog_stub:
@@ -37,6 +41,7 @@ class ResourceManager:
     _work_experience: list[Job]
     _lang_experience: list[LangExperience]
     _skills_list: list[SkillCategory]
+    _page_data: dict[str, any]
 
 
     def __new__(cls):
@@ -52,6 +57,7 @@ class ResourceManager:
         cls.generate_blogs()
         cls.generate_we()
         cls.generate_skills()
+        cls.generate_page_data()
         return
 
 
@@ -60,7 +66,7 @@ class ResourceManager:
         if name:
             filename = name + '.md'
             path = conf.blog_dir / filename
-        else: # Using path
+        else:  # Using path
             filename = f"{path}".split('/')[-1]
             name = filename.split('.')[0]
 
@@ -111,6 +117,28 @@ class ResourceManager:
 
 
     @classmethod
+    def generate_page_data(cls):
+        exp = {}
+
+        pathlist = Path(conf.data_dir / 'page/').rglob('*.yaml')
+        for path in pathlist:
+            with open(path, 'r') as f:
+                page_data:dict = yaml.load(f, Loader=yaml.Loader)
+            if page_data.get('data', False):
+                index = page_data.get('lookup', str(path.name)[:-4])
+                data = page_data['data']
+
+                if page_data.get('mode', False):
+                    if page_data['mode'] == 'json':
+                        depth = page_data.get('initial_depth', 0)
+                        data = seek_and_parse(data, depth)
+
+                exp[index] = data
+
+        cls._page_data = exp
+
+
+    @classmethod
     def _sort_blogs(cls, blogs: list[blog_stub]) -> list[blog_stub]:
         return sorted(blogs, key=lambda b: b.date, reverse=True)
 
@@ -155,12 +183,12 @@ class ResourceManager:
     def get_lang_levels(cls) -> list["LangExperience"]:
         return cls._lang_experience
 
+    @classmethod
+    def get_page_data(cls, page: str) -> Optional[dict]:
+        return cls._page_data.get(page, None)
 
     @classmethod
     def get_all_exp(cls):
-        #TODO DISABLE AFTER TESTING
-        cls.reload_cache()
-
         all = {
             "work": cls._work_experience,
             "lang": cls._lang_experience,

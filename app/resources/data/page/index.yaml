@@ -1,0 +1,21 @@
+lookup: 'index'
+mode: 'json' # json|auto
+initial_depth: 1  # for json mode, how deep to start re-processing
+data:
+  ticker:
+    - pre: "a"
+      text: "Developer."
+    - pre: "an"
+      text: "Engineer."
+    - pre: "a"
+      text: "Tinkerer."
+    - pre: "a"
+      text: "Designer."
+    - pre: "not"
+      text: "a robot."
+    - pre: "an"
+      text: "Administrator."
+    - pre: "an"
+      text: "Enthusiast."
+    - pre: "a"
+      text: "Wearer-of-many-hats."
