@@ -3,10 +3,16 @@
     --blur: blur(48px) saturate(0.9);
     scroll-behavior: smooth;
     text-decoration-skip-ink: all;
+
+    transition-property: color, background-color, border-color, backdrop-filter;
+    transition-duration: 0.25s;
+    transition-timing-function: linear;
 }
 
 #nav-mask {
-    --nav-blur: blur(15px) brightness(80%) saturate(70%) contrast(110%);
+    --base-blur-effect: saturate(70%) contrast(110%);
+    --nav-mask-blur: var(--base-blur-effect) blur(10px);
+    --nav-blur: contrast(90%) saturate(130%);
     position: fixed;
     z-index: 29;
     top: 0;
@@ -14,16 +20,11 @@
     right: 0;
     height: calc((var(--bulma-navbar-height) + var(--navbar-offset))*2);
     background-color: rgba(0, 0, 0, 0%);
-    backdrop-filter: var(--nav-blur);
+    backdrop-filter: var(--nav-mask-blur);
 
-
-    clip-path: xywh(5rem 1.25rem calc(100% - 10rem) calc(var(--bulma-navbar-height) + 2rem + 4px) round var(--bulma-radius-large));
+    clip-path: xywh(5rem 1.25rem calc(100% - 10rem) calc(var(--bulma-navbar-height) + 2rem + 5px) round var(--bulma-radius-large));
 }
 
-.navbar {
-    background-color: rgba(0, 0, 0, 20%);
-    backdrop-filter: contrast(90%) saturate(130%);
-}
 
 .navbar-brand .navbar-item {
     gap: 0.5rem
@@ -48,6 +49,10 @@
 
 
 @media (prefers-color-scheme: light) {
+    :root {
+        --nav-mask-blur: var(--base-blur-effect) blur(10px);
+    }
+
     .has-background-s0 {
         background-color: var(--bulma-white);
     }
@@ -61,11 +66,16 @@
     }
 
     #nav-mask {
-        backdrop-filter: var(--nav-blur) brightness(120%) !important;
+        backdrop-filter: var(--nav-mask-blur);
+    }
+
+    .navbar {
+        backdrop-filter: var(--nav-blur);
+        background-color: rgba(255, 255, 255, 20%);
     }
 
     .has-background-blur {
-        backdrop-filter: var(--blur) brightness(110%) !important;
+        /*backdrop-filter: var(--blur) brightness(110%) !important;*/
         /*-webkit-backdrop-filter: var(--blur) brightness(110%);*/
     }
 
@@ -76,6 +86,11 @@
 
 
 @media (prefers-color-scheme: dark) {
+    :root {
+        --nav-mask-blur: var(--base-blur-effect) blur(15px) brightness(80%);
+        --nav-blur: contrast(90%) saturate(130%);
+
+    }
     .has-background-s0 {
         background-color: var(--bulma-black);
     }
@@ -89,7 +104,12 @@
     }
 
     #nav-mask {
-        backdrop-filter: var(--nav-blur) brightness(80%) !important;
+        backdrop-filter: var(--nav-mask-blur);
+    }
+
+    .navbar {
+        backdrop-filter: var(--nav-blur);
+        background-color: rgba(0, 0, 0, 20%);
     }
 
     .has-background-blur {
