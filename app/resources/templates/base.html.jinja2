@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+{% block tag_head %}<head>{% endblock %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name='language' content='EN'>
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
+
         <title>{{ title }}</title>
-        <title>{{ title }}</title>
+        <meta name="twitter:title" content="{{ share_title }}">
+        <meta property="og:title" content="{{ share_title }}">
+        <meta property="og:locale" content="en_US.utf-8">
+    {% block robots %}
+        <meta name=”robots” content="index, follow, noimageai">
+    {% endblock %}
     {% block common_head %}
     {% endblock %}
     {% block head %}

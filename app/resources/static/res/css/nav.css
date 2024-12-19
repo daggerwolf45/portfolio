@@ -1,0 +1,120 @@
+:root {
+    --navbar-offset: 1.25rem;
+    transition-property: color, background-color, border-color, backdrop-filter;
+    transition-duration: 0.25s;
+    transition-timing-function: linear;
+}
+
+
+/* Blur Mask */
+#nav-mask {
+    --base-blur-effect: saturate(70%) contrast(110%);
+    --nav-mask-blur: var(--base-blur-effect) blur(10px);
+    --nav-blur: contrast(90%) saturate(130%);
+    position: fixed;
+    z-index: 29;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc((var(--bulma-navbar-height) + var(--navbar-offset))*2);
+    background-color: rgba(0, 0, 0, 0%);
+    backdrop-filter: var(--nav-mask-blur);
+
+    clip-path: xywh(5rem 1.25rem calc(100% - 10rem) calc(var(--bulma-navbar-height) + 2rem + 5px) round var(--bulma-radius-large));
+}
+
+
+.navbar-brand .navbar-item {
+    gap: 0.5rem
+}
+.navbar-brand .navbar-item span::first-letter {
+    color: var(--bulma-primary);
+}
+
+.navbar-menu.is-active {
+    background: transparent;
+    box-shadow: none;
+}
+
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --nav-mask-blur: var(--base-blur-effect) blur(10px);
+    }
+
+    #nav-mask {
+        backdrop-filter: var(--nav-mask-blur);
+    }
+
+    .navbar {
+        backdrop-filter: var(--nav-blur);
+        background-color: rgba(255, 255, 255, 20%);
+    }
+
+    /*.navbar-menu.is-active {*/
+    /*    backdrop-filter: var(--blur) brightness(110%) !important;*/
+    /*}*/
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --nav-mask-blur: var(--base-blur-effect) blur(15px) brightness(80%);
+        --nav-blur: contrast(90%) saturate(130%);
+    }
+
+    #nav-mask {
+        backdrop-filter: var(--nav-mask-blur);
+    }
+
+    .navbar {
+        backdrop-filter: var(--nav-blur);
+        background-color: rgba(0, 0, 0, 20%);
+    }
+
+    /*.navbar-menu.is-active {*/
+    /*    backdrop-filter: var(--blur) brightness(90%) !important;*/
+    /*}*/
+}
+
+/* Desktop Settings */
+@media screen and (min-width: 1024px) {
+    body.has-navbar-fixed-top {
+        padding-top: calc(var(--bulma-navbar-height) + var(--navbar-offset));
+    }
+
+    .navbar {
+        margin: var(--navbar-offset) 5rem;
+    }
+
+    .navbar-dropdown a.navbar-item {
+        padding-inline-end: 1rem;
+    }
+}
+
+/* Mobile/Tablet Settings */
+@media screen and (max-width: 1024px) {
+    .navbar {
+        border-radius: 0;
+    }
+
+    #nav-mask {
+        height: 100%;
+        clip-path: xywh(0 0 100% calc(var(--bulma-navbar-height) + 2.5rem));
+    }
+
+    /*!* Nav-mask, when immediately followed by a navbar menu that is active *!*/
+    /*#nav-mask:has(+ .navbar .navbar-menu.is-active) {*/
+    /*    clip-path: xywh(0 0 100% calc(96px + 2.5rem));*/
+    /*}*/
+
+    /* Above, but when there are 2 navbar-items */
+    #nav-mask:has(+ .navbar .is-active .navbar-item:first-child:nth-last-child(2)) {
+        clip-path: xywh(0 0 100% calc(163px + 2.5rem));
+    }
+
+    .navbar-item {
+        border-radius: var(--bulma-radius)
+    }
+
+}

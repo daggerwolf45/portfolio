@@ -20,6 +20,8 @@ class Config:
     we_filename = "work_experience.yaml"
     skills_filename = "skill_experience.yaml"
 
+    proxy_base = "https://samlaird.com"
+
 
 
 

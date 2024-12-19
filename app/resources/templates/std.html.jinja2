@@ -1,15 +1,47 @@
 {% extends "base.html.jinja2" %}
+{% block tag_head %}
+    <head prefix="og: https://ogp.me/ns#">
+{% endblock %}
 {% block common_head %}
+    <!-- Meta -->
+    {% block meta %}
+    <meta name="author" content="Sam Laird">
+
+    <meta property="og:site_name" content="SamLaird.com">
+    {% if description %}
+        <meta name="description" content="{{ description }}">
+        <meta property="og:description" content="{{ description }}">
+    {% endif %}
+    <link rel="canonical" href="{{ canonical_url }}"/>
+    <meta property="og:url" content="{{ canonical_url }}">
+
+    <meta name="twitter:card" content="summary">
+
+    {% block og_type%}
+        <meta property="og:type" content="website">
+    {% endblock %}
+    {% endblock %}
+
+    <!-- Rendering -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    {% block meta_theme_color %}
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="#14161a" media="(prefers-color-scheme: dark)">
+    {% endblock %}
+
+    <!-- Styling/Logic -->
+    <link rel="stylesheet" blocking="render" href="{{ url_for('static', path='/res/css/nav.css') }}" />
+
     <!-- PreConnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous">
 
     <link rel="prefetch" href="/portfolio">
     <link rel="prefetch" href="{{ url_for('static', path='/res/css/f/portfolio.css') }}">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..800&display=swap" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..800&display=swap" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -42,7 +74,6 @@
 
             <div id="nav-pages" class="navbar-menu">
                 <div class="navbar-start">
-
 
                 </div>
 

@@ -40,6 +40,9 @@
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', path='/res/css/f/portfolio.css') }}" />
 {% endblock %}
+{% block robots %}
+    <meta name=”robots” content="index, follow, noai, noimageai"/>
+{% endblock %}
 {% block page %}
     <section class="section container top-sec">
 

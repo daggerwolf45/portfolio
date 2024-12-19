@@ -1,7 +1,22 @@
 {% extends "std.html.jinja2" %}
+
+{% block meta_theme_color %}
+    <meta name="theme-color" content="#f3f4f6" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1f2229" media="(prefers-color-scheme: dark)">
+{% endblock %}
+
+{% block og_type %}
+    <meta property="og:type" content="profile"/>
+    <meta property="og:profile:first_name" content="Sam">
+    <meta property="og:profile:last_name" content="Laird">
+    <meta property="og:profile:username" content="daggerwolf45">
+    <meta property="og:profile:pronouns" content="He/They">
+{% endblock %}
+
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', path='/res/css/f/index.css') }}" />
 {% endblock %}
+
 {% block page %}
     <section id="landing-greeting" class="section top-sec has-background-s2">
         <div class="columns container">

@@ -66,16 +66,22 @@ async def template_response(request: Request, path:str, *, process_name=True, **
         raise e
 
 
-async def page_response(common: std_dep, path: str, get_page_data: bool = True, **kw, ) -> _TemplateResponse:
+async def page_response(common: std_dep, path: str, get_page_data: bool = True, *, title:str, **kw, ) -> _TemplateResponse:
     if get_page_data:
         kw['page'] = ResourceManager.get_page_data(path)
+
+    kw['share_title'] = kw.get('share_title', title)
+    real_path = common.request.url.path[:-1] + common.request.url.path[-1].replace('/','')
+    canonical_url = conf.proxy_base + real_path
 
     return await template_response(
           request=common.request,
           path=path,
+          title=title,
           latest_blogs=common.blogs,
           last_blog_published_time=common.last_blog,
           pageUrl=str(common.request.url),
+          canonical_url=canonical_url,
           **kw
     )
 
@@ -96,7 +102,9 @@ async def blog_response(common: std_dep,  markdown: RenderedMarkdown, **kw) -> _
 @page_router.get('/', response_class=HTMLResponse)
 async def index(std: standard_dep, bg: BackgroundTasks):
     bg.add_task(ResourceManager.reload_cache)
-    return await page_response(std, "index", True, title='Sam Laird')
+    return await page_response(std, "index", True, title='Sam Laird',
+                               description="Hi! I'm Sam Laird. This link takes you to my website. I got all sorts of things there like my portfolio, projects, photography and blog! Check it out!"
+                               )
     #return await template_response(request, "index", title="Sam Laird", ptext="Hello World!", test_out=std.blogs)
 
 
