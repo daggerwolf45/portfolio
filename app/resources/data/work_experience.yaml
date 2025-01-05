@@ -55,6 +55,14 @@ jobs:
         details:
           - text: "Planned new and oversaw network deployment for new location"
           - text: "Worked with staff to rebrand and establish modern online presence"
+      - title: "Producer"
+        start_date: "March/2020"
+        end_date: "July/2021"
+        details:
+          - text: "Produced live church services and recorded classes"
+          - text: "Mixed Audio"
+          - text: "Controlled cameras and lighting"
+          - text: "Monitored livestream & chat interactions from multiple platforms simultaneously"
         skills:
           - class: "Software"
             items:

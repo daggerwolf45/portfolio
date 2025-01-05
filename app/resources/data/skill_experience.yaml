@@ -125,5 +125,7 @@ tk:
     items:
       - name: "Git"
       - name: "x86 Assembly"
+      - name: "OBS"
+      - name: "Extreme Overclocking"
 
 

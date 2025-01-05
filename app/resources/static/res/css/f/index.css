@@ -38,7 +38,7 @@
 
 .skill-block .box p:not(.title) {
     margin: 0.5rem 1.2rem;
-    text-align: center;
+    text-align: justify;
     font-size: 1rem;
 }
 
@@ -49,6 +49,16 @@
 .skill-block .control .button {
     font-size: 1.1rem;
     padding: 0.5rem 3rem;
+}
+
+.corner-clip figure {
+    width: fit-content;
+    height: fit-content;
+}
+
+.corner-clip img {
+    width: 5rem !important;
+    height: 5rem !important;
 }
 
 
