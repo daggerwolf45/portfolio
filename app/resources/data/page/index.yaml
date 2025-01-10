@@ -2,10 +2,9 @@ lookup: 'index'
 mode: 'json' # json|auto
 initial_depth: 1  # for json mode, how deep to start re-processing
 data:
-  opt:
-    show_about: false
-    show_boxes: true
-    show_quotes: true
+  opt_show_about: false
+  opt_show_boxes: true
+  opt_show_quotes: false
   ticker:
     - pre: "a"
       text: "Developer."

@@ -1,7 +1,7 @@
 :root {
     /* Font */
-    --bulma-family-primary: Outfit,Inter, SF Pro, Segoe UI, Roboto, Oxygen, Ubuntu, Helvetica Neue,Helvetica, Arial, sans-serif;
-    --bulma-family-secondary: Nunito,Inter, SF Pro, Segoe UI, Roboto, Oxygen, Ubuntu, Helvetica Neue, Helvetica, Arial, sans-serif;
+    --bulma-family-primary: Outfit, Inter, SF Pro, Segoe UI, Roboto, Oxygen, Ubuntu, Helvetica Neue, Helvetica, Arial, sans-serif;
+    --bulma-family-secondary: Nunito, Inter, SF Pro, Segoe UI, Roboto, Oxygen, Ubuntu, Helvetica Neue, Helvetica, Arial, serif;
 
 }
 

@@ -1,0 +1,28 @@
+lookup: 'contact'
+mode: 'auto' # json|auto
+initial_depth: 1  # for json mode, how deep to start re-processing
+data:
+  methods:
+    - name: "Email"
+      href: "mailto:contact@samlaird.com"
+      fas: "fa-solid fa-envelope-open-text"
+      content: "contact@samlaird.com"
+    - name: "Signal"
+      content: "+1 (774) 315-6398"
+      fas: "fa-brands fa-signal-messenger"
+    - name: "Instagram"
+      href: "https://instagram.com/sams_lair"
+      content: "@sams_lair"
+      fas: "fa-brands fa-instagram"
+    - name: "LinkedIn"
+      href: "https://www.linkedin.com/in/sam-laird/"
+      content: "sam-laird"
+      fas: "fa-brands fa-linkedin-in"
+    - name: "Discord"
+      content: "daggerwolf45"
+      fas: "fa-brands fa-discord"
+    - name: "Github"
+      fas: "fa-brands fa-github"
+      content: "daggerwolf45"
+      href: "https://github.com/daggerwolf45"
+

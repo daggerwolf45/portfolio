@@ -111,7 +111,7 @@ async def index(std: standard_dep, bg: BackgroundTasks):
 # Portfolio
 @page_router.get('/portfolio', response_class=HTMLResponse)
 async def portfolio(std: standard_dep, experience: Annotated[list[Job], Depends(ResourceManager.get_all_exp)]):
-    return await page_response(std, "portfolio", title='Sam Laird - Portfolio', experience=experience)
+    return await page_response(std, "portfolio", title='Sam Laird - Portfolio', experience=experience, share_title="Sam Laird's Portfolio")
 
 
 @page_router.get('/portfolio-alt', response_class=HTMLResponse)
@@ -131,6 +131,12 @@ async def works(std: standard_dep, blogs: Annotated[list[blog_stub], Depends(Res
          ) for b in blogs]
 
     return await page_response(std, "works", title='Things I made - Sam Laird', blogs=blogs)
+
+
+# Contact
+@page_router.get('/contact', response_class=HTMLResponse)
+async def contact(std: standard_dep):
+    return await page_response(std, "contact", True,  title='Sam Laird - Contacts', share_title='Contact Sam Laird')
 
 
 # Blog Posts

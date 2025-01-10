@@ -1,0 +1,74 @@
+{% extends "std.html.jinja2" %}
+
+{% macro render_cm(method) %}
+    <li>
+        <div class="contact-method">
+            <div class="cm cm-name">
+                {% if method.photo_ref is defined %}
+                <figure class="image is-square cm-icon">
+                    <img class="is-rounded" src="{{ url_for('static', path=method.photo_ref) }}" alt="icon" />
+                </figure>
+                {% elif method.fas is defined %}
+                    <span class="icon cm-icon">
+                      <i class="{{ method.fas }}"></i>
+                    </span>
+                {% endif %}
+                <p>
+                    <span>{{ method.name }}</span>
+                </p>
+            </div>
+
+            {% if method.href is defined %}
+            <a href="{{ method.href }}" class="cm cm-content">
+            {% else %}
+            <div class="cm cm-content">
+            {% endif %}
+                <p>
+                    <span>{{ method.content }}</span>
+                </p>
+            {% if method.href is defined %}
+            </a>
+            {% else %}
+            </div>
+            {% endif %}
+        </div>
+    </li>
+{% endmacro %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', path='/res/css/f/contact.css') }}" />
+{% endblock %}
+{% block robots %}
+    <meta name=”robots” content="noindex, follow, noai, noimageai"/>
+{% endblock %}
+{% block page %}
+    <section class="section container top-sec">
+        <div class="contacts-block">
+            <p class="title is-3 has-text-centered">
+                Get in touch
+            </p>
+            <div class="columns">
+                <div class="column is-half">
+                    <div id="contact-memo">
+                        <span>Thanks for taking an interest in contacting me. These are my most used contact methods and socials. Email is probably best but I do read all of them so use whichever one you prefer.</span>
+                        <span>I'll do my best to get back to you promptly.</span>
+                    </div>
+                </div>
+                <div class="sep-line"></div>
+                <div class="column is-half">
+                    <div class="is-flex is-flex-direction-row">
+                        <div class="contact-methods">
+                            <ul>
+                                {% for cm in page.methods %}
+                                    {{ render_cm(cm) }}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
