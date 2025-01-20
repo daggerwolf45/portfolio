@@ -121,7 +121,7 @@ tk:
       - name: "PCB Design"
         items:
           - name: "Altium"
-  - name: "Misc"
+  - name: "Miscellaneous"
     items:
       - name: "Git"
       - name: "x86 Assembly"

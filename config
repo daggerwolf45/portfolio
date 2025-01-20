@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# This is a config for launching the server, not the server it's self
+
+export SLP_pyexec="python"
+export SLP_server_mod=uvicorn
+export SLP_module="app.main:app"
+
+export SLP_port=8000
+export SLP_host="0.0.0.0"
+export SLP_allowed_ips="'*'"
+export SLP_misc_args="--use-colors --reload"
+
+
+export SLP_launch_config="--host $SLP_host --port $SLP_port --forwarded-allow-ips $SLP_allowed_ips $SLP_misc_args"
+export SLP_launch_args="-m $SLP_server_mod $SLP_launch_args $SLP_module"
+
+export LAUNCH="$SLP_pyexec $SLP_launch_args"
