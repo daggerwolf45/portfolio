@@ -1,21 +1,46 @@
 jobs:
   - company: {
+      name: "Genuone",
+      url: "https://www.genuone.co"
+      }
+    start_date: "Jan/2024"
+    end_date: "Present"
+    roles:
+      - title: "Technical Founder"
+        description: "Responsible for designing and building core software for Genuone, as well as selecting and designing tools for inter-company collaboration, progress tracking, documentation and resource management."
+        details:
+          - text: "Designed anonymous ID verification API from the ground up."
+          - text: "Created integration for cross-site verification without the use of third-party cookies or redirects."
+          - text: "Built geo-spatial userdata system in compliance with global data privacy laws."
+          - text: "Integrated automatic tiered billing system, with support for any currencies. Including manual invoicing for traditional customers."
+          - text: "Setup and maintained CI/CD system with support for compiling and unit testing libraries for all operating systems and most popular languages/frameworks."
+      - title: "CEO"
+        description: "If it's administrative, investment, customer or advertising related, I do it."
+        details:
+          - text: "Incorporated Genuone Software Inc."
+          - text: "Patented anonymous ID verification system."
+          - text: "Researched and liaisoned with investors."
+          - text: "Interviewed and coordinated with developers."
+          - text: "Designed company branding, including imagery, color and font palettes, and slogans."
+          - text: "Defined corporate ethics and roadmaps for sustainable, long-term growth."
+  - company: {
       name: "Nextera Robotics",
       url: "https://nexterarobotics.com/didge-ai"
       }
     start_date: "Jul/2022"
     end_date: "Oct/2023"
     roles:
-      - title: "Backend & Devops Developer - Electronics Engineer"
+      - title: "Infrastructure & Hardware Specialist"
+        description: "I like to say my job at Nextera was wearing every hat that no-one else wanted to, all at once. I oversaw all software and hardware from robot-to-web-server, especially the networking. I also handled all on-board communications, internal IO, and power delivery for our robots."
         details:
-          - text: "Developed backend for Robot fleet control portal"
-          - text: "Created automated deployment manager for robots and network infrastructure"
-          - text: "Designed and oversaw development of the following hardware for Robot"
+          - text: "<strong>400%</strong> uptime increase, including automated fault recovery system."
+          - text: "Developed backend for Robot fleet control portal, and logistics."
+          - text: "Automated deployment for all robots and network infrastructure."
+          - text: "Optimized TCP flow control, multi-gateway routing, and Wireguard tunneling to allow for realtime video over erratic and harsh conditions."
+          - text: "Designed and oversaw development of the following electronics for Robot."
             sub_detail:
               - text: "PDU and Charging Controller"
               - text: "Managed USB-3 IO & Networking Board"
-          - text: "Various signal/rf integrity and fault recovery systems for 900mhz mesh network"
-
   - company: {
       name: "Boundless Robotics",
       url: "https://boundlessrobotics.com/"
@@ -25,12 +50,12 @@ jobs:
     roles:
       - title: "Consulting Test Engineer"
         details:
-          - text: "Built dynamic test platform for full and partial hardware verification"
+          - text: "Built modular test platform for full and partial hardware verification."
             sub_detail:
-              - text: "Web Interface for controls and debugging"
-              - text: "Component level pre-assembly testing support"
-              - text: "Support for easy expandability and test groups"
-          - text: "Assisted in FCC certification of wireless radio"
+              - text: "Web Interface for controls and debugging."
+              - text: "Component level pre-assembly testing support."
+              - text: "Support for easy expandability and test groups."
+          - text: "Assisted in FCC certification of wireless radio."
 
   - company: {
       name: "New England Chapel",
@@ -57,12 +82,13 @@ jobs:
           - text: "Worked with staff to rebrand and establish modern online presence"
       - title: "Producer"
         start_date: "March/2020"
-        end_date: "July/2021"
+        end_date: "Present"
         details:
-          - text: "Produced live church services and recorded classes"
-          - text: "Mixed Audio"
-          - text: "Controlled cameras and lighting"
+          - text: "Produce live church services and recorded classes"
+          - text: "Designed and maintain presentation, and streaming software & equipment."
+          - text: "Live mixing and scene control"
           - text: "Monitored livestream & chat interactions from multiple platforms simultaneously"
+          - text: "Write and help maintain documentation for church volunteers"
         skills:
           - class: "Software"
             items:

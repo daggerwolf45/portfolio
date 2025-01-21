@@ -58,13 +58,14 @@
     background-color: var(--bulma-grey-light);
 }
 
-
 .exp-block .role-block:last-child .exp-line {
-    height: 95%;
-    background: linear-gradient(var(--bulma-grey-light) 70%, var(--bulma-primary), 95%, transparent);
+    height: 90%;
+    background: linear-gradient(var(--bulma-grey-light) 60%, var(--bulma-primary), 90%, transparent, 100%, transparent);
 }
 
-
+.exp-header .tag {
+    margin-top: 0.22rem;
+}
 
 .role-block {
     margin-bottom: 0 !important;
@@ -74,9 +75,21 @@
 .role-block:not(:first-child) .exp-dot { /*Mini-dot*/
     width: 0.5rem;
     height: 0.5rem;
+    margin-bottom: 1rem;
 
-    box-shadow: 0 0 0.5rem 1px var(--bulma-primary);
+    box-shadow: 0 0 0.45rem 1px var(--bulma-primary);
 }
+
+.role-disc {
+    margin: 0.3rem 0.25rem 0.2rem;
+    margin-bottom: 0.2rem !important;
+    font-size: 0.9rem;
+}
+
+.role-disc + hr {
+    margin: 0;
+}
+
 
 /* Languages */
 .lang-container {

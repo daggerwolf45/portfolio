@@ -29,6 +29,7 @@ class Role(BaseModel):
     title: str
     start_date: Optional[str] = Field(default=None)
     end_date: Optional[str] = Field(default=None)
+    description: Optional[str] = Field(default=None)
     details: list[NestedDescription]
     skills: Optional[list[RoleSkillClass]] = Field(default=None)
 
@@ -63,7 +64,8 @@ class Job(BaseModel):
                           title=data.get("role", data['title']),
                           start_date=data['start_date'],
                           end_date=data['end_date'],
-                          details=data['details']
+                          details=data['details'],
+                          description=data['description']
                     )
                 ]
 

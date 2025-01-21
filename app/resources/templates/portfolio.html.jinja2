@@ -1,7 +1,7 @@
 {% extends "std.html.jinja2" %}
 
 {% macro render_detail(detail) %}
-    <li>{{ detail.text }}
+    <li>{{ detail.text|safe }}
         {% if detail.sub_detail is defined and detail.sub_detail is not none %}
             <ul>
                 {% for sd in detail.sub_detail %}
@@ -93,7 +93,10 @@
                                     </span>
 
                                 {% endif %}
-
+                                {% if exp.roles[0].description is not none %}
+                                    <p class="role-disc subtitle has-text-weight-semibold is-family-secondary">{{ exp.roles[0].description|safe }}</p>
+                                    <hr>
+                                {% endif %}
                                 <ul class="ml-4 mt-1">
                                     {% for detail in exp.roles[0].details %}
                                         {{ render_detail(detail) }}
@@ -108,9 +111,11 @@
 
                         <div class="role-block columns is-centered is-6">
                             <div class="column is-4 has-text-right exp-header">
+                                {% if role.start_date is not none %}
                                 <span class="tag is-rounded">
                                     {{ role.start_date }} - {{ role.end_date }}
                                 </span>
+                                {% endif %}
                                 {{ render_role_skills(role.skills, exp.company.name) }}
                             </div>
 
@@ -123,7 +128,10 @@
                                     <p class="subtitle is-6 mb-1 pt-1">
                                         <span class="has-text-weight-semibold">{{ role.title }}</span>
                                     </p>
-
+                                    {% if role.description is not none %}
+                                        <p class="role-disc subtitle has-text-weight-semibold is-family-secondary">{{ role.description|safe }}</p>
+                                        <hr>
+                                    {% endif %}
                                     <ul class="ml-4 mt-1">
                                         {% for detail in role.details %}
                                             {{ render_detail(detail) }}
