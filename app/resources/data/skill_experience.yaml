@@ -11,10 +11,10 @@ lang:
         icon_name: "ts.webp"
       - name: "Javascript"
         icon_name: "js.webp"
-      - name: "C"
-        icon_name: 'c.webp'
       - name: "C++"
         icon_name: "cpp.webp"
+      - name: "C"
+        icon_name: 'c.webp'
   - light:
       - name: "Zig"
         icon_name: "zig.webp"
@@ -124,8 +124,9 @@ tk:
   - name: "Miscellaneous"
     items:
       - name: "Git"
-      - name: "x86 Assembly"
+      - name: "x86-64 Assembly (AT&T)"
       - name: "OBS"
+      - name: "ProPresenter"
       - name: "Extreme Overclocking"
 
 
