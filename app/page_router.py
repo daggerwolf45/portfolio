@@ -6,7 +6,7 @@ from fastapi import BackgroundTasks, Depends, HTTPException
 from fastapi import APIRouter
 from jinja2 import Environment, FileSystemLoader, TemplateNotFound
 from starlette.requests import Request
-from starlette.responses import HTMLResponse
+from starlette.responses import FileResponse, HTMLResponse
 from starlette.templating import Jinja2Templates, _TemplateResponse
 
 from app.cache import ResourceManager, blog_stub
@@ -152,8 +152,17 @@ async def get_blog(std: standard_dep, blog_id: str):
 
     markdown = RenderedMarkdown(path=blog_path)
 
-    return await blog_response(std, markdown)
+    return await blog_response(std, markdown,
+                               title=f"Sam Laird - {stub.title}", share_title=stub.title,
+                               description=stub.description,
+                               )
 
+
+# Resume
+@page_router.get('/resume', response_class=FileResponse)
+async def get_resume():
+    file_path = conf.files_dir / 'resume.pdf'
+    return FileResponse(path=file_path, filename="SamLaird-Resume.pdf", media_type="application/pdf")
 
 
 @admin_router.get('/reload')
