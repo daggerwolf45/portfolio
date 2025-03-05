@@ -33,16 +33,46 @@
     transform: translate(-50%, -50%);
 }
 
-.w-pages .cell {
+.cb {
     width: 3rem;
     height: 3rem;
+    border-radius: var(--bulma-control-radius);
+    border: 3px solid;
+    touch-action: manipulation;
+
+    box-shadow: 1px 1px 0 0, 2px 2px 0 0, 3px 3px 0 0, 4px 4px 0 0, 0.125rem 0.125rem 0 0;
 }
-.w-pages .cell.button {
-     color: blue;
- }
+
+.cb.active {
+    transform: translate(0.125rem, 0.125rem);
+    box-shadow: 0 0 0 0;
+    filter: grayscale(50%);
+}
 
 .w-pages i {
     font-size: 2rem;
+    margin: 0 auto;
+}
+
+/* Pages - Color */
+.cb:nth-child(1){
+    background-color: var(--bulma-primary)
+}
+
+.cb:nth-child(2){
+    background-color: var(--bulma-info)
+}
+
+.cb:nth-child(3){
+    background-color: var(--bulma-warning)
+}
+
+.cb:nth-child(4){
+     background-color: var(--bulma-success)
+ }
+
+.cb:nth-child(5){
+    background-color: var(--bulma-danger)
 }
 
 /* Content */
