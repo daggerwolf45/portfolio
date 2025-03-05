@@ -138,6 +138,10 @@ async def works(std: standard_dep, blogs: Annotated[list[blog_stub], Depends(Res
 async def contact(std: standard_dep):
     return await page_response(std, "contact", True,  title='Sam Laird - Contacts', share_title='Contact Sam Laird')
 
+# Testing page
+@page_router.get('/demo', response_class=HTMLResponse)
+async def contact(std: standard_dep):
+    return await page_response(std, "demo", False,  title='Demo', share_title='Spooky scary secret page')
 
 # Blog Posts
 @page_router.get(conf.blog_root + '{blog_id}', response_class=HTMLResponse)

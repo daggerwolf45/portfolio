@@ -1,0 +1,59 @@
+{% extends "std.html.jinja2" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', path='/res/css/f/widget.css') }}" />
+{% endblock %}
+{% block page %}
+    <div class="section container top-sec">
+        <div id="widget_container" class="has-background-s0 box">
+            <div class="columns is-0">
+                <div class="w-doll column is-5">
+                    <div>
+                        <h1 class="title">About Me</h1>
+                        <div class="doll-cont">
+                            <figure>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-pages column is-1 has-background-s2">
+                    <div class="fixed-grid has-1-cols">
+                        <div class="grid">
+                            <button class="cb cell button active" onclick="updateWidget(this)">
+                                <span class="icon">
+                                    <i class="fa-solid fa-font"></i>
+                                </span>
+                            </button>
+                            <button class="cb cell button" onclick="updateWidget(this)">
+                                <span class="icon">
+                                    <i class="fa-solid fa-music"></i>
+                                </span>
+                            </button>
+                            <button class="cb cell button" onclick="updateWidget(this)">
+                                <span class="icon">
+                                    <i class="fa-solid fa-film"></i>
+                                </span>
+                            </button>
+                            <button class="cb cell button" onclick="updateWidget(this)">
+                                <span class="icon">
+                                    <i class="fa-solid fa-newspaper"></i>
+                                </span>
+                            </button>
+                            <button class="cb cell button" onclick="updateWidget(this)">
+                                <span class="icon">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-content column is-6 has-background-s1">
+                    <h2 class="subtitle">There</h2>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{{ url_for('static', path='/res/js/widget.js') }}"></script>
+{% endblock %}

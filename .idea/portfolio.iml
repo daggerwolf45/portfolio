@@ -5,7 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/.venvpypy" />
     </content>
-    <orderEntry type="jdk" jdkName="PyPy 3.13 (portfolio)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="PyPy 3.12 (portfolio)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="font-awesome" level="application" />
     <orderEntry type="library" name="bulma-helpers" level="application" />

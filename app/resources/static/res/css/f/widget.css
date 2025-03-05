@@ -1,0 +1,48 @@
+/* Interactive About-Me Widget */
+#widget_container {
+    width: 64em;
+    height: 36em;
+    padding: 0;
+}
+
+#widget_container .columns {
+    height: 100%;
+}
+
+#widget_container .column {
+}
+
+
+/* Paper Doll */
+.w-doll > div {
+    padding: 1.5rem;
+}
+
+
+/* Pages */
+.w-pages {
+    position: relative;
+}
+
+.w-pages .grid {
+    width: fit-content;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.w-pages .cell {
+    width: 3rem;
+    height: 3rem;
+}
+.w-pages .cell.button {
+     color: blue;
+ }
+
+.w-pages i {
+    font-size: 2rem;
+}
+
+/* Content */
