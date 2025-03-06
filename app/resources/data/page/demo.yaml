@@ -1,0 +1,3 @@
+lookup: 'demo'
+mode: 'auto' # json|auto
+modules: ['about']

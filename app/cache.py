@@ -1,4 +1,5 @@
 import glob
+import importlib
 import json
 from datetime import datetime
 from os import PathLike
@@ -8,8 +9,9 @@ from typing import Optional
 import yaml
 from app.config import conf
 from app.md import RenderedMarkdown
-from app.models import Job, LangExperience, ProgLang, SkillCategory
+from app.models import Job, LangExperience, Module, ProgLang, SkillCategory
 from app.utils import dump_json, seek_and_parse
+
 
 
 class blog_stub:
@@ -124,16 +126,39 @@ class ResourceManager:
         for path in pathlist:
             with open(path, 'r') as f:
                 page_data:dict = yaml.load(f, Loader=yaml.Loader)
-            if page_data.get('data', False):
+            if page_data.get('lookup', False):
+                imported_data = dict()
                 index = page_data.get('lookup', str(path.name)[:-4])
-                data = page_data['data']
 
-                if page_data.get('mode', False):
-                    if page_data['mode'] == 'json':
-                        depth = page_data.get('initial_depth', 0)
-                        data = seek_and_parse(data, depth)
+                # Load 'data'
+                if page_data.get('data', False):
+                    data = page_data['data']
 
-                exp[index] = data
+                    if page_data.get('mode', False):
+                        if page_data['mode'] == 'json':
+                            depth = page_data.get('initial_depth', 0)
+                            data = seek_and_parse(data, depth)
+                    imported_data['data'] = data
+
+                # Load 'modules'
+                if page_data.get('modules', False):
+                    mod_data = dict()
+                    for mod_name in page_data['modules']:
+                        try:    # Try to import specified module
+                            mod = importlib.import_module(f'app.modules.{mod_name}')
+                        except Exception:
+                            print(f'Failed to load module "{mod_name}"')
+                            continue
+
+                        # Verify module conforms to spec
+                        if not isinstance(mod, Module):
+                            print(f'ERROR: Module "{mod_name}" does not conform to spec. Aborting.')
+                            continue
+
+                        mod_data[mod.namespace] = mod.page_data()
+                    imported_data['mods'] = mod_data
+
+                exp[index] = imported_data
 
         cls._page_data = exp
 
@@ -186,7 +211,6 @@ class ResourceManager:
     @classmethod
     def get_page_data(cls, page: str) -> Optional[dict]:
         return cls._page_data.get(page, None)
-
     @classmethod
     def get_all_exp(cls):
         all = {

@@ -1,0 +1,12 @@
+pages:
+  - name: "about"
+    primary: true
+    icon: "fa-solid fa-font"
+  - name: "music"
+    icon: "fa-solid fa-music"
+  - name: "movies"
+    icon: "fa-solid fa-film"
+  - name: "articles"
+    icon: "fa-solid fa-newspaper"
+  - name: "youtube"
+    icon: "fa-brands fa-youtube"

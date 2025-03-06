@@ -68,7 +68,11 @@ async def template_response(request: Request, path:str, *, process_name=True, **
 
 async def page_response(common: std_dep, path: str, get_page_data: bool = True, *, title:str, **kw, ) -> _TemplateResponse:
     if get_page_data:
-        kw['page'] = ResourceManager.get_page_data(path)
+        page_data = ResourceManager.get_page_data(path)
+        if page_data.get('data', None) is not None:
+            kw['page'] = page_data['data']
+        if page_data.get('mods', None) is not None:
+            kw['mod'] = page_data['mods']
 
     kw['share_title'] = kw.get('share_title', title)
     real_path = common.request.url.path[:-1] + common.request.url.path[-1].replace('/','')
@@ -138,10 +142,12 @@ async def works(std: standard_dep, blogs: Annotated[list[blog_stub], Depends(Res
 async def contact(std: standard_dep):
     return await page_response(std, "contact", True,  title='Sam Laird - Contacts', share_title='Contact Sam Laird')
 
+
 # Testing page
 @page_router.get('/demo', response_class=HTMLResponse)
 async def contact(std: standard_dep):
-    return await page_response(std, "demo", False,  title='Demo', share_title='Spooky scary secret page')
+    return await page_response(std, "demo", True,  title='Demo', share_title='Spooky scary secret page')
+
 
 # Blog Posts
 @page_router.get(conf.blog_root + '{blog_id}', response_class=HTMLResponse)

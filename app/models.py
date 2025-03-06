@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Annotated, Optional
+from typing import Annotated, Optional, Protocol, runtime_checkable
 
 from pydantic import BaseModel, Field, HttpUrl
 
@@ -127,3 +127,32 @@ class SkillCategory(BaseModel):
             data['items'] = None
 
         return cls.model_validate(data)
+
+
+######
+#   Cards
+####
+class Image(BaseModel):
+    local: bool = Field(default=False)
+    src: str
+
+
+class Card(BaseModel):
+    title: str
+    desc: str
+    image: Optional[Image] = Field(default=None)
+    method: Optional[str] = Field(default=None)
+    payload: Optional[str] = Field(default=None)
+    link: Optional[str] = Field(default=None)
+
+
+######
+#   Modules
+####
+@runtime_checkable
+class Module(Protocol):
+    namespace: str
+    @staticmethod
+    def page_data() -> any: ...
+
+
