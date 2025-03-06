@@ -1,7 +1,7 @@
 import pathlib
 import yaml
 
-namespace = "ab-widget"
+namespace = "ab_widget"
 
 
 def page_data():

@@ -43,6 +43,10 @@
     box-shadow: 1px 1px 0 0, 2px 2px 0 0, 3px 3px 0 0, 4px 4px 0 0, 0.125rem 0.125rem 0 0;
 }
 
+.cb:not(:last-child){
+    margin-bottom: 0.5rem;
+}
+
 .cb.active {
     transform: translate(0.125rem, 0.125rem);
     box-shadow: 0 0 0 0;

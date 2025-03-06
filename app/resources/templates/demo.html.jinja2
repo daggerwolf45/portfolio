@@ -18,31 +18,13 @@
                 <div class="w-pages column is-1 has-background-s2">
                     <div class="fixed-grid has-1-cols">
                         <div class="grid">
-                            <button class="cb cell button active" onclick="updateWidget(this)">
-                                <span class="icon">
-                                    <i class="fa-solid fa-font"></i>
-                                </span>
-                            </button>
-                            <button class="cb cell button" onclick="updateWidget(this)">
-                                <span class="icon">
-                                    <i class="fa-solid fa-music"></i>
-                                </span>
-                            </button>
-                            <button class="cb cell button" onclick="updateWidget(this)">
-                                <span class="icon">
-                                    <i class="fa-solid fa-film"></i>
-                                </span>
-                            </button>
-                            <button class="cb cell button" onclick="updateWidget(this)">
-                                <span class="icon">
-                                    <i class="fa-solid fa-newspaper"></i>
-                                </span>
-                            </button>
-                            <button class="cb cell button" onclick="updateWidget(this)">
-                                <span class="icon">
-                                    <i class="fa-brands fa-youtube"></i>
-                                </span>
-                            </button>
+                            {% for page in ab_widget.pages %}
+                                <button class="cb cell button{{ ' active' if page.primary }}" onclick="updateWidget(this)">
+                                    <span class="icon" aria-label="{{ page.name }}">
+                                        <i class="{{ page.icon }}"></i>
+                                    </span>
+                                </button>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -53,7 +35,6 @@
             </div>
         </div>
     </div>
-    {{ mod }}
 {% endblock %}
 {% block scripts %}
     <script src="{{ url_for('static', path='/res/js/widget.js') }}"></script>
