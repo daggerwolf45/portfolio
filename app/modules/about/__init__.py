@@ -11,4 +11,3 @@ def page_data():
         page_data: dict = yaml.load(f, Loader=yaml.Loader)
     return page_data
 
-

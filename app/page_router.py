@@ -146,6 +146,14 @@ async def contact(std: standard_dep):
 # Testing page
 @page_router.get('/demo', response_class=HTMLResponse)
 async def contact(std: standard_dep):
+    cards = [
+        {
+            "name": "A post",
+            "desc": "This is a card!",
+            "img": ""
+        }
+    ]
+
     return await page_response(std, "demo", True,  title='Demo', share_title='Spooky scary secret page')
 
 

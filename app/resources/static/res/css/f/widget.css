@@ -3,6 +3,10 @@
     width: 64em;
     height: 36em;
     padding: 0;
+
+    transition-property: filter, translate, box-shadow;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out;
 }
 
 #widget_container .columns {
@@ -51,6 +55,8 @@
     transform: translate(0.125rem, 0.125rem);
     box-shadow: 0 0 0 0;
     filter: grayscale(50%);
+    transition-duration: 0.01s;
+
 }
 
 .w-pages i {
@@ -80,3 +86,103 @@
 }
 
 /* Content */
+.scroller {
+    --scrollbar-color-thumb: var(--bulma-scheme-main);
+    --scrollbar-color-thumb-hover: red;
+
+    @media (prefers-color-scheme: light) {
+        --scrollbar-color-track: var(--bulma-white-ter);
+    }
+
+
+    @media (prefers-color-scheme: dark) {
+        --scrollbar-color-track: var(--bulma-black-ter);
+    }
+
+    --scrollbar-width: auto; /* thin */
+    --scrollbar-width-legacy: 0.666rem;
+
+    container-type: inline-size;
+
+    &:has(.scroll-cont) {
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+
+    .scroll-cont {
+        *:first-child {
+            margin-top: 0;
+        }
+        *:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+/* Technically 'legacy' but far more featured so it is the default */
+@supports selector(::-webkit-scrollbar) {
+    .scroller::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-color-thumb);
+        border-radius: calc(var(--scrollbar-width-legacy) / 1.5);
+    }
+    .scroller::-webkit-scrollbar-thumb:hover {
+        background: var(--scrollbar-color-thumb-hover);
+    }
+
+    .scroller::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track);
+    }
+    .scroller::-webkit-scrollbar {
+        max-width: var(--scrollbar-width-legacy);
+        max-height: var(--scrollbar-width-legacy);
+    }
+}
+
+/* Modern scrollbar theme controls */
+@supports (not selector(::-webkit-scrollbar)) and (scrollbar-width: auto) {
+    .scroller {
+        scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
+        scrollbar-width: var(--scrollbar-width);
+    }
+
+    .scroller {
+        scrollbar-color: var(--scrollbar-color-thumb-hover) var(--scrollbar-color-track);
+    }
+}
+
+
+
+
+
+.w-cards {
+    padding: 1.25rem;
+}
+
+.w-card {
+    display: flex;
+    flex-direction: row;
+    max-height: 10rem;
+}
+
+.w-card-icon {
+    margin-right: 1rem;
+}
+
+.w-card-desc {
+    height: 90%;
+    overflow: clip;
+    text-overflow: ellipsis;
+    position: relative;
+    /*background: linear-gradient(transparent 50, var(--bulma-box-background-color));*/
+}
+
+.w-card-desc:before {
+    content:'';
+    width:100%;
+    height:100%;
+    position: absolute;
+    left:0;
+    top:0;
+    background: linear-gradient(transparent 75%, var(--bulma-box-background-color));
+
+}
