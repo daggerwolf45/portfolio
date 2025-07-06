@@ -6,7 +6,7 @@ from fastapi.middleware.gzip import GZipMiddleware
 
 from app.cache import ResourceManager
 from app.config import conf
-from app.page_router import admin_router, page_router
+from app.router import admin_router, page_router
 
 # Start RM
 ResourceManager()
@@ -45,3 +45,4 @@ app.mount("/static", StaticFiles(directory=static_dir), name="static")
 # Base router
 app.include_router(page_router)
 app.include_router(admin_router, prefix="/admin")
+
