@@ -16,6 +16,7 @@ class Config:
     template_dir = script_directory / "resources" / "templates"
     blog_dir = script_directory / "resources" / "blog"
     data_dir = script_directory / "resources" / "data"
+    files_dir = script_directory / "resources" / "files"
 
     we_filename = "work_experience.yaml"
     skills_filename = "skill_experience.yaml"

@@ -11,10 +11,10 @@ lang:
         icon_name: "ts.webp"
       - name: "Javascript"
         icon_name: "js.webp"
-      - name: "C"
-        icon_name: 'c.webp'
       - name: "C++"
         icon_name: "cpp.webp"
+      - name: "C"
+        icon_name: 'c.webp'
   - light:
       - name: "Zig"
         icon_name: "zig.webp"
@@ -101,31 +101,61 @@ tk:
             - name: "OpenWRT"
         - name: "IOT"
           items:
-            - name: "ZWave"
+            - name: "Z-Wave"
             - name: "Zigbee"
             - name: "Thread"
         - name: "Remote Mesh"
           items:
             - name: "Doodlelabs Mesh Rider"
               link: "https://doodlelabs.com/products/mesh-rider-radios/"
+  - name: "Video Processing"
+    subtypes:
+      - name: "Tools"
+        items:
+          - name: "OBS"
+          - name: "FFmpeg"
+          - name: "ProPresenter"
+          - name: "Nginx"
+      - name: "Network Protocols"
+        items:
+          - name: "RTMP/S"
+          - name: "HLS"
+          - name: "DASH"
+          - name: "WebRTC"
+          - name: "SRT"
+      - name: "Encoding Formats"
+        items:
+          - name: "h.264"
+          - name: "h.265/HVEC"
+          - name: "AV1"
   - name: "Operating Systems"
     items:
       - name: "Windows 10/11"
       - name: "Mac OS"
-      - name: "Ubuntu"
-      - name: "Arch"
-      - name: "Debian"
-      - name: "Alpine"
+    subtypes:
+      - name: "Linux"
+        items:
+        - name: "Ubuntu"
+        - name: "Arch"
+        - name: "Debian"
+        - name: "Alpine"
   - name: "CAD"
     subtypes:
       - name: "PCB Design"
         items:
           - name: "Altium"
   - name: "Miscellaneous"
+    subtypes:
+        - name: "Tools"
+          items:
+            - name: "Git"
+            - name: "Caddy"
+            - name: "Microsoft Office"
+            - name: "Google Workspace"
+            - name: "Anytype"
     items:
-      - name: "Git"
-      - name: "x86 Assembly"
-      - name: "OBS"
+      - name: "x86-64 Assembly (AT&T)"
       - name: "Extreme Overclocking"
+
 
 

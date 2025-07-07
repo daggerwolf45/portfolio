@@ -50,7 +50,7 @@
         Work Experience
 #}
         <div class="work-block">
-            <div class="columns is-centered is-6 pt-5 heading">
+            <div class="columns is-centered is-6 pt-5">
                 <div class="column is-4 has-text-right">
                     <p class="title is-3">Professional Work</p>
                 </div>
@@ -79,10 +79,8 @@
 
                         <div class="column is-6 exp-line-block">
                             <div class="exp-trail">
-                                <div class="exp-line">
-                                    <div class="exp-dot"></div>
-                                    <div class="exp-stroke"></div>
-                                </div>
+                                <span class="exp-dot"></span>
+                                <div class="exp-line"></div>
                             </div>
                             <div class="exp-details content">
                                 {% if exp.has_roles %}
@@ -111,7 +109,7 @@
                     {% if exp.has_roles %}
                     {% for role in exp.roles[1:] %}
 
-                        <div class="role-block following-block columns is-centered is-6">
+                        <div class="role-block columns is-centered is-6">
                             <div class="column is-4 has-text-right exp-header">
                                 {% if role.start_date is not none %}
                                 <span class="tag is-rounded">
@@ -123,10 +121,8 @@
 
                             <div class="column is-6 exp-line-block">
                                 <div class="exp-trail">
-                                    <div class="exp-line">
-                                        <div class="exp-dot"></div>
-                                        <div class="exp-stroke"></div>
-                                    </div>
+                                    <span class="exp-dot"></span>
+                                    <div class="exp-line"></div>
                                 </div>
                                 <div class="exp-details content">
                                     <p class="subtitle is-6 mb-1 pt-1">

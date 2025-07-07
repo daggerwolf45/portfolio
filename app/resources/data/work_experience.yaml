@@ -15,7 +15,6 @@ jobs:
           - text: "Integrated automatic tiered billing system, with support for any currencies. Including manual invoicing for traditional customers."
           - text: "Setup and maintained CI/CD system with support for compiling and unit testing libraries for all operating systems and most popular languages/frameworks."
       - title: "CEO"
-        description: "If it's administrative, investment, customer or advertising related, I do it."
         details:
           - text: "Incorporated Genuone Software Inc."
           - text: "Patented anonymous ID verification system."
@@ -31,7 +30,7 @@ jobs:
     end_date: "Oct/2023"
     roles:
       - title: "Infrastructure & Hardware Specialist"
-        description: "I like to say my job at Nextera was wearing every hat that no-one else wanted to, all at once. I oversaw all software and hardware from robot-to-web-server, especially the networking. I also handled all on-board communications, internal IO, and power delivery for our robots."
+        description: "I like to say my job at Nextera was wearing every hat that no-one else wanted to, all at once. I oversaw all software and hardware from robot-to-web-server, especially the networking & video pipeline. I also handled all on-board communications, internal IO, and power delivery for our robots."
         details:
           - text: "<strong>400%</strong> uptime increase, including automated fault recovery system."
           - text: "Developed backend for Robot fleet control portal, and logistics."

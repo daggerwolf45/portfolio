@@ -25,6 +25,7 @@
 
 
 .navbar-brand .navbar-item {
+    gap: 0.5rem
 }
 .navbar-brand .navbar-item span::first-letter {
     color: var(--bulma-primary);
@@ -69,10 +70,6 @@
     .navbar {
         backdrop-filter: var(--nav-blur);
         background-color: rgba(0, 0, 0, 20%);
-    }
-
-    .navbar-item {
-        --bulma-navbar-item-color: var(--bulma-white-ter);
     }
 
     /*.navbar-menu.is-active {*/

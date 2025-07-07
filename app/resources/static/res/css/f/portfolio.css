@@ -13,12 +13,14 @@
     width: fit-content;
     display: none; !important;
 }
+
 .rs_container .dummy_title {
     position: relative;
     z-index: -1;
     color: transparent !important;
     height: 0;
 }
+
 .rs_class_box {
     width: fit-content;
 }
@@ -26,59 +28,57 @@
 
 .exp-trail {
     display: block;
-    box-sizing: content-box;
-    width: fit-content;
-}
-.exp-line {
     width: 1rem;
-    margin: 0.5rem 0.5rem 0;
-    /*margin: 0.5rem 0.75rem 0 0.25rem;*/
-    height: 100%;
+    margin-right: 1rem;
 }
 
+
 .exp-dot {
+    position: relative;
+    top: 0.5em;
     display: block;
     width: 0.75rem;
     height: 0.75rem;
     border-radius: 50%;
-    margin: 0.125rem 0.125rem 0.25rem;
+    margin: 0 auto;
+
 
     background-color: var(--bulma-grey);
 }
-.following-block .exp-dot { /*Mini-dot*/
-    width: 0.25rem;
-    height: 0.25rem;
-    margin: 0.375rem;
+/* Modified in role-block:last-child*/
 
-    box-shadow: 0 0 0.45rem 1px var(--bulma-primary);
-}
 
-.exp-stroke {
+.exp-line {
     display: block;
     width: 0.25rem;
-    height: 100%;
-    margin: 0 auto;
+    height: calc(100%);
+    margin: calc(0.3rem + 0.5em) auto 0.3rem;
     border-radius: 0.25rem;
 
     background-color: var(--bulma-grey-light);
 }
-.role-block:not(:last-child).following-block .exp-stroke {
-    height: calc(100% + 0.5rem);
-}
-.exp-block .role-block:last-child .exp-stroke { /* Last section of line */
-    background: linear-gradient(var(--bulma-grey-light) 70%, var(--bulma-primary), 90%, transparent, 100%, transparent);
-}
 
+.exp-block .role-block:last-child .exp-line {
+    height: 90%;
+    background: linear-gradient(var(--bulma-grey-light) 60%, var(--bulma-primary), 90%, transparent, 100%, transparent);
+}
 
 .exp-header .tag {
     margin-top: 0.22rem;
 }
+
 .role-block {
     margin-bottom: 0 !important;
 }
 
 
+.role-block:not(:first-child) .exp-dot { /*Mini-dot*/
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-bottom: 1rem;
 
+    box-shadow: 0 0 0.45rem 1px var(--bulma-primary);
+}
 
 .role-disc {
     margin: 0.3rem 0.25rem 0.2rem;
@@ -131,6 +131,11 @@
 
 /*Mobile*/
 @media screen and (max-width: 768px) {
+    .exp-block {
+        width: 95%;
+        margin: 0 auto;
+    }
+
     /* Disable right headers */
     .has-text-right {
         text-align: left !important;
@@ -141,68 +146,27 @@
         display: none;
     }
 
-    .work-block {
-        margin-top: -1.5rem;
-    }
-    .heading {
-        padding-top: 0 !important;
-        margin-bottom: 0.5rem !important;
-    }
-
-
-    .role-block.following-block {
-        margin-top: -1rem;
-    }
-
-    .exp-block {    /* Each 'job' */
-        width: 95%;
-        margin: 0 auto;
-    }
-
-    /* Job header */
     .exp-header {
-        padding: 0;
-        display: inline-flex;
-        margin-left: 3.5rem;
-    }
-    .following-block .exp-header {
-        display: none;
+        padding-bottom: 0;
     }
 
-    .exp-header .tag { /* Date tag */
-        margin-left: 0.5rem;
-    }
-    .exp-header .title {
-        margin-right: 0.5rem;
-    }
-    .exp-header .subtitle.mb-2 {
-        margin: auto !important;
-    }
-
-    .exp-trail {
-        margin-top: -1.5rem;
-        padding-bottom: 0.75rem;
-    }
-
-    .following-block .exp-trail {
-        margin-top: 0.25rem;
-    }
-
-    .exp-line {
-        margin-top: 0;
-    }
-
-
-    /* experience header AND */
     .exp-line-block {
         padding-top: 0;
     }
-    /*.exp-line-block:has(.exp-details .subtitle) .exp-trail{*/
-    /*    margin-top: -1.5rem;*/
-    /*}*/
-    /*.exp-header:not(:has(.subtitle)) .title {*/
-    /*   margin-bottom: 0.25em;*/
-    /*}*/
+
+    .exp-header .tag {
+        margin-left: 2rem;
+    }
+
+    .exp-line-block:has(.exp-details .subtitle) .exp-trail{
+        margin-top: -1.5rem;
+    }
+
+    .exp-header:not(:has(.subtitle)) .title {
+       margin-bottom: 0.25em;
+    }
+
+
 
 
 
