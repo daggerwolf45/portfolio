@@ -1,0 +1,47 @@
+{% extends "std.html.jinja2" %}
+{% block head %}
+    <script async blocking="render" src="{{ url_for('static', path='/res/js/mdedit.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', path='/res/css/f/mdedit.css') }}" />
+{% endblock %}
+{% block page %}
+    <div class="section container top-sec">
+        <div class="header block">
+            <p class="title">MDEdit</p>
+            <p class="subtitle">Fancy-pants blog writer</p>
+        </div>
+        <div class="block">
+            <div class="box">
+                <div id="editor">
+                    <textarea id="editor_textarea" class="textarea"></textarea>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="section container" id="preview_blk">
+        <div class="controls">
+            <div class="field is-horizontal is-grouped">
+                <div class="control">
+                    <p class="title is-4">Preview</p>
+                </div>
+                <div class="control">
+                    <button class="button is-info" onclick="ReloadMarkdown()">Reload</button>
+                </div>
+            </div>
+        </div>
+        <div id="frame_box">
+            <iframe
+                  id="preview_frame"
+                  width=100%
+                  src=""
+            ></iframe>
+        </div>
+
+
+    </div>
+
+
+{% endblock %}
+{% block scripts %}
+{#    <script src="{{ url_for('static', path='/res/js/mdedit-text.js') }}"></script>#}
+{% endblock %}

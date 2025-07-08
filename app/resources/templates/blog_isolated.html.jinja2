@@ -1,0 +1,58 @@
+{% extends "base.html.jinja2" %}
+{% block common_head %}
+    <!-- Rendering -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    {% block meta_theme_color %}
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+        <meta name="theme-color" content="#14161a" media="(prefers-color-scheme: dark)">
+    {% endblock %}
+
+    <!-- PreConnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..800;1,200..800&family=Outfit:wght@100..800&display=swap" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.2/css/bulma.min.css" integrity="sha512-RpeJZX3aH5oZN3U3JhE7Sd+HG8XQsqmP3clIbu4G28p668yNsRNj3zMASKe1ATjl/W80wuEtCx2dFA8xaebG5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma-helpers/0.4.3/css/bulma-helpers.min.css" integrity="sha512-U6ELnUi7oqVEjkLmFw5r5UR5LEtvpImS/jUykBKneVhD0lxZxfJZ3k3pe003ktrtNZYungd9u3Urp2X09wKwXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', path='/res/css/bulma_o.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', path='/res/css/main.css') }}" />
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', path='/res/css/f/blog.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', path='/res/css/f/isoblog.css') }}" />
+{% endblock %}
+{% block body %}
+    <section class="section">
+        <div class="container block mb-6">
+            <h1 class="title">{{ title }}</h1>
+            <h3 class="subtitle">
+                {{ author }}
+                {% if date %}
+                    - {{ date }}
+                {% endif %}
+            </h3>
+        </div>
+
+
+        <section class="container">
+            <div class="columns block box">
+                <div id="blog_content" class="content column">
+                    {{ md_content|safe }}
+                </div>
+
+                <div class="content column box is-narrow">
+                    {{ md_toc|safe }}
+                </div>
+            </div>
+        </section>
+
+    </section>
+{% endblock %}

@@ -1,0 +1,34 @@
+html, body {
+    height: 100%;
+}
+
+
+
+
+#preview_blk {
+    height: 100%;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.controls .control {
+    align-content: center;
+}
+
+#frame_box {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    height: 100%;
+}
+
+#preview_frame {
+    flex-grow: 1;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}

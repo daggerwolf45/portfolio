@@ -1,0 +1,40 @@
+{% extends "std.html.jinja2" %}
+{% block head %}
+{% endblock %}
+{% block page %}
+    <div class="section container top-sec">
+        <p class="title">Wow such hubbage!</p>
+        <div class="box" id="st_block">
+            <p class="title">Site Tools</p>
+            <div class="fixed-grid has-4-cols-desktop">
+                <div class="grid">
+                    <div class="cell">
+                        <a href="/admin/tools/mdedit">
+                        <div class="box">
+                            <div>
+                                <p class="subtitle has-text-weight-bold">Blog Writer</p>
+                            </div>
+                            <div>
+                                <p>A nice user friendly md generator for blog posts</p>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    {% for cell in page.internal_tools %}
+                        <div class="cell">
+                            <div class="box">
+                                <p>{{ cell }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block scripts %}
+
+{% endblock %}

@@ -34,6 +34,11 @@ body.has-navbar-fixed-top:has(#landing-greeting) {
     height: calc(100%);
 }
 
+
+.hidden {
+    display: none !important;
+}
+
 @media (prefers-color-scheme: light) {
     .has-background-s0 {
         background-color: var(--bulma-white);

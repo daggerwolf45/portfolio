@@ -78,6 +78,14 @@ class ResourceManager:
         return stub
 
     @classmethod
+    def _load_blog_from_text(cls, text: str, name: str = None) -> blog_stub:
+        blog = RenderedMarkdown(text=text)
+        stub = blog_stub('text.md', name, blog.meta.title, blog.meta.timestamp, blog.meta.author, blog.meta.description)
+
+        return stub
+
+
+    @classmethod
     def generate_blogs(cls):
         blogs = {}
         for filename in glob.glob('*.md', root_dir=conf.blog_dir):
@@ -187,6 +195,11 @@ class ResourceManager:
             cls._blog_list = cls._sort_blogs(cls._blog_list)
 
             return stub
+
+    @classmethod
+    def make_blog_from_text(cls, data: str, name: str = "Generated Blog") -> blog_stub:
+        return cls._load_blog_from_text(text=data, name=name)
+
 
     @classmethod
     def latest_blogs(cls, count: int = 5) -> list[blog_stub]:

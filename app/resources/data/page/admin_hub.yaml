@@ -1,0 +1,4 @@
+lookup: 'admin/hub'
+mode: 'auto' # json|auto
+data:
+  internal_tools: []

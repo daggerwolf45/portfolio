@@ -8,7 +8,7 @@ from app.router.response.jinja import template_response
 
 
 
-async def page_response(common: std_dep, path: str, get_page_data: bool = True, *, title:str, **kw, ) -> _TemplateResponse:
+async def page_response(common: std_dep, path: str, get_page_data: bool = True, *, title:str = "Website", **kw, ) -> _TemplateResponse:
     if get_page_data:
         page_data = ResourceManager.get_page_data(path)
         if page_data is not None:
@@ -32,10 +32,15 @@ async def page_response(common: std_dep, path: str, get_page_data: bool = True, 
     )
 
 
-async def blog_response(common: std_dep,  markdown: RenderedMarkdown, **kw) -> _TemplateResponse:
+async def blog_response(common: std_dep,  markdown: RenderedMarkdown, *, isolated: bool=True, **kw) -> _TemplateResponse:
+    if isolated:
+        path = "blog_isolated"
+    else:
+        path = "blog_base"
+
     return await page_response(
           common,
-          "blog_base",
+          path,
           md_content=markdown.html,
           md_toc=markdown.toc,
           **markdown.meta.__dict__,
