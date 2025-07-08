@@ -2,7 +2,16 @@ html, body {
     height: 100%;
 }
 
+#editor {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
+#editor_textarea {
+    field-sizing: content;
+    height: fit-content;
+}
 
 
 #preview_blk {
