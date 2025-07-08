@@ -4,7 +4,7 @@ from app.cache import ResourceManager
 from app.config import conf
 from app.md import RenderedMarkdown
 from app.router.deps import std_dep
-from app.router.response.jinja import template_response, templates
+from app.router.response.jinja import template_response
 
 
 

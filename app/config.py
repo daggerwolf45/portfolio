@@ -14,6 +14,7 @@ class Config:
     blog_root = '/blog/'
 
     template_dir = script_directory / "resources" / "templates"
+    stub = template_dir / "stub"
     blog_dir = script_directory / "resources" / "blog"
     data_dir = script_directory / "resources" / "data"
     files_dir = script_directory / "resources" / "files"
