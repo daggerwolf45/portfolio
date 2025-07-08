@@ -43,6 +43,9 @@ textarea.addEventListener('keydown', (e) => {
                 textarea.selectionStart =
                     textarea.selectionEnd = start + tab_size;
                 break;
+            case 'Escape':
+                textarea.blur()
+                break;
             default:
                 undo = []
         }
