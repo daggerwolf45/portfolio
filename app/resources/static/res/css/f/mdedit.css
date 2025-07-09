@@ -14,18 +14,65 @@ html, body {
 }
 
 
-#preview_blk {
-    height: 100%;
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
 }
+
+.toolbar .controls {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: row;
+
+    border-radius: var(--bulma-control-radius);
+    border: 1px solid var(--bulma-border);
+    padding: 0;
+}
+.control-group:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.control-group .button {
+    border: none;
+    border-radius: 0;
+    display: inline-block;
+    box-shadow: none;
+}
+.control-group .button:first-child {
+    border-top-left-radius: var(--bulma-control-radius);
+    border-bottom-left-radius: var(--bulma-control-radius);
+}
+.control-group .button:last-child {
+    border-top-right-radius: var(--bulma-control-radius);
+    border-bottom-right-radius: var(--bulma-control-radius);
+}
+
+
+#histo_progress {
+    width: 10rem;
+}
+
+
 
 .controls {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-
 .controls .control {
     align-content: center;
+}
+
+
+
+#preview_blk {
+    height: 100%;
 }
 
 #frame_box {

@@ -32,7 +32,7 @@ async def page_response(common: std_dep, path: str, get_page_data: bool = True, 
     )
 
 
-async def blog_response(common: std_dep,  markdown: RenderedMarkdown, *, isolated: bool=True, **kw) -> _TemplateResponse:
+async def blog_response(common: std_dep,  markdown: RenderedMarkdown, *, isolated: bool=False, **kw) -> _TemplateResponse:
     if isolated:
         path = "blog_isolated"
     else:

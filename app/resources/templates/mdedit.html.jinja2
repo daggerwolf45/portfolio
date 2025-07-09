@@ -1,6 +1,7 @@
 {% extends "std.html.jinja2" %}
 {% block head %}
     <script async blocking="render" src="{{ url_for('static', path='/res/js/mdedit.js') }}"></script>
+    <script async blocking="render" src="{{ url_for('static', path='/res/js/mdedit-text.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', path='/res/css/f/mdedit.css') }}" />
 {% endblock %}
 {% block page %}
@@ -12,6 +13,49 @@
         <div class="block">
             <div class="box">
                 <div id="editor">
+
+                    <div class="toolbar">
+                        <div class="controls">
+                            <div class="control-group">
+                                <button id="btn_bold" class="button is-1by1">
+                                    <i class="icon fa fa-bold"></i>
+                                </button>
+                                <button id="btn_italic" class="button is-1by1">
+                                    <i class="icon fa fa-italic"></i>
+                                </button>
+                                <button id="btn_underline" class="button is-1by1">
+                                    <i class="icon fa fa-underline"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="controls">
+                            <div class="control-group">
+                                <button id="btn_undo" class="button is-1by1">
+                                    <i class="icon fa fa-undo"></i>
+                                </button>
+                                <div class="control">
+                                    <label for="histo_progress">History</label>
+                                    <progress class="progress" value="0" max="50" id="histo_progress"></progress>
+                                </div>
+                                <button id="btn_redo" class="button is-1by1" disabled>
+                                    <i class="icon fa fa-redo"></i>
+                                </button>
+                            </div>
+                            <div class="control-group">
+                                <button id="btn_save" class="button is-1by1">
+                                    <i class="icon fa fa-floppy-disk"></i>
+                                </button>
+                                <button id="btn_download" class="button is-1by1">
+                                    <i class="icon fa fa-download"></i>
+                                </button>
+                                <button id="btn_clear" class="button is-1by1">
+                                    <i class="icon fa fa-close"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                     <textarea id="editor_textarea" class="textarea"></textarea>
                 </div>
             </div>

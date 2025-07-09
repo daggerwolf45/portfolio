@@ -1,24 +1,22 @@
-const textarea = document.getElementById('editor_textarea');
+const editor_textarea = document.getElementById('editor_textarea');
 const previewFrame = document.getElementById('preview_frame');
 
-import('/static/res/js/mdedit-text.js');
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('readystatechange', () => {
     const starting_data = localStorage.getItem('draft-text');
     if (starting_data !== null){
-        textarea.value = starting_data;
+        editor_textarea.value = starting_data;
     }
 })
 
-textarea.addEventListener('change', async function() {
-    localStorage.setItem('draft-text', textarea.value);
+editor_textarea.addEventListener('change', async function() {
+    localStorage.setItem('draft-text', editor_textarea.value);
 })
 
 
 const ReloadMarkdown = async function () {
     const resp = await fetch('/admin/view/isoblog', {
         method: 'POST',
-        body: textarea.value
+        body: editor_textarea.value
     });
 
     if (resp.ok) {
