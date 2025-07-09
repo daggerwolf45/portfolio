@@ -129,6 +129,10 @@ const fMono = function(e){
     wrapTag(textarea, 'code');
 }
 
+const fGay= function(e){
+    wrapTag(textarea, 'gay');
+}
+
 const fTabnate = function(e){
     const start = textarea.selectionStart;
     const end = textarea.selectionEnd;
@@ -188,10 +192,10 @@ textarea.addEventListener('keydown', (e) => {
 textarea.addEventListener('change', (e) => {
     _ProgessHistory(true)
 })
-
 textarea.addEventListener('click', (e) => {
     _ProgessHistory()
 })
+
 textarea.addEventListener('focusout', (e) => {
     e.preventDefault();
 })
@@ -212,17 +216,22 @@ document.getElementById('editor').addEventListener('mouseover', (e) => {
     }
 })
 
-
+// Basic Styles
 document.getElementById("btn_bold").addEventListener('click', fBold)
 document.getElementById("btn_italic").addEventListener('click', fItalic)
 
+// Style Menu
+document.getElementById("style_sel_code").addEventListener('click', fMono)
+document.getElementById('style_sel_gay').addEventListener('click', fGay)
 
+// History
 document.getElementById("btn_undo").addEventListener('click', fUndo)
 document.addEventListener('DOMContentLoaded', function() {
     _ProgessHistory()
 })
 document.getElementById("btn_redo").addEventListener('click', fRedo)
 
+// File
 document.getElementById("btn_clear").addEventListener('click', () => {
     _ProgessHistory()
     textarea.value = ''

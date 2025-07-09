@@ -88,3 +88,36 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+
+gay {
+    background-image:
+            linear-gradient(45deg, red 0, orange 20%, yellow 35%, green 45%, blue 60%, violet 80%, red 100%);
+    text-align: center;
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 2s linear infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0
+    }
+
+    50% {
+        background-position: 100%
+    }
+
+    100% {
+        background-position: 200%
+    }
+}
+
+
+/* Mobile Settings */
+@media screen and (max-width: 700px) {
+    .control:has(#histo_progress) {
+        display: none;
+    }
+}
