@@ -92,7 +92,6 @@ const _wrap = function(field, open, close){
     const end = field.selectionEnd;
 
     const dist = end - start;
-    const change_len = open.length + close.length;
 
     _ProgessHistory(true)
 
@@ -104,7 +103,7 @@ const _wrap = function(field, open, close){
         text.substring(end);
 
     textarea.selectionStart =
-        textarea.selectionEnd = start + dist + change_len;
+        textarea.selectionEnd = start + dist + open.length;
 }
 
 const wrap = function(field, val){
@@ -199,6 +198,18 @@ textarea.addEventListener('focusout', (e) => {
 
 document.getElementById('editor').addEventListener('click', (e) => {
     textarea.focus();
+})
+document.getElementById('editor').addEventListener('mousedown', (e) => {
+    if (e.target === textarea) {
+    } else {
+        textarea.focus();
+    }
+})
+document.getElementById('editor').addEventListener('mouseover', (e) => {
+    if (e.target === textarea) {
+    } else {
+        textarea.focus();
+    }
 })
 
 
