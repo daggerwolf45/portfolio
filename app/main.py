@@ -6,7 +6,7 @@ from fastapi.middleware.gzip import GZipMiddleware
 
 from app.cache import ResourceManager
 from app.config import conf
-from app.router import admin_router, page_router
+from app.router import admin_router, page_router, resource_router
 
 # Start RM
 ResourceManager()
@@ -39,10 +39,13 @@ app.add_middleware(GZipMiddleware)
 
 
 # Static Files
-static_dir = conf.script_directory / "resources" / "static"
-app.mount("/static", StaticFiles(directory=static_dir), name="static")
+app.mount(conf.static_root, StaticFiles(directory=conf.static_dir), name="static")
+editor_dir = f'{conf.static_dir}/res/js/editor'
+app.mount('/res/app/editor', StaticFiles(directory=editor_dir), name="editor")
+
 
 # Base router
 app.include_router(page_router)
 app.include_router(admin_router, prefix="/admin")
+app.include_router(resource_router)
 

@@ -12,9 +12,11 @@ class Config:
     works_blog_desc_char_limit = 180
 
     blog_root = '/blog/'
+    static_root = '/static'
 
+    static_dir = script_directory / 'resources' / 'static'
     template_dir = script_directory / "resources" / "templates"
-    stub = template_dir / "stub"
+    stub_dir = template_dir / "stub"
     blog_dir = script_directory / "resources" / "blog"
     data_dir = script_directory / "resources" / "data"
     files_dir = script_directory / "resources" / "files"

@@ -224,6 +224,7 @@ class ResourceManager:
     @classmethod
     def get_page_data(cls, page: str) -> Optional[dict]:
         return cls._page_data.get(page, None)
+
     @classmethod
     def get_all_exp(cls):
         all = {

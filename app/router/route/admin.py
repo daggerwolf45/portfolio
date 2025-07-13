@@ -1,6 +1,6 @@
 from typing import Annotated
 
-from fastapi import APIRouter, Body
+from fastapi import APIRouter, Body, BackgroundTasks
 from starlette.exceptions import HTTPException
 
 from app.cache import ResourceManager, blog_stub
@@ -34,9 +34,10 @@ async def hub(std: standard_dep):
 
 
 @router.get('/tools/mdedit')
-async def mdedit(std: standard_dep):
+async def mdedit(std: standard_dep, bg: BackgroundTasks):
+    bg.add_task(ResourceManager.reload_cache)
     return await page_response(
-          std, "mdedit", title='Blogspot')
+          std, "mdedit", title='Blogspot', get_page_data=True)
 
 
 @router.get('/view/isoblog/{blog_id}')

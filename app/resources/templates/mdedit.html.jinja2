@@ -1,7 +1,9 @@
 {% extends "std.html.jinja2" %}
 {% block head %}
-    <script async blocking="render" src="{{ url_for('static', path='/res/js/mdedit.js') }}"></script>
-    <script async blocking="render" src="{{ url_for('static', path='/res/js/mdedit-text.js') }}"></script>
+{#    <script type="importmap">{{ page.importmap | tojson(indent=0) }}</script>#}
+
+    <script async blocking="render" type="module" src="{{ url_for('static', path="/res/js/mdedit.js") }}"></script>
+
     <link rel="stylesheet" href="{{ url_for('static', path='/res/css/f/mdedit.css') }}" />
 {% endblock %}
 {% block page %}
@@ -11,7 +13,7 @@
             <p class="subtitle">Fancy-pants blog writer</p>
         </div>
         <div class="block">
-            <div class="box">
+            <div class="box" id="editor_frame">
                 <div id="editor">
 
                     <div class="toolbar">
@@ -55,6 +57,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="control-group">
+                                <button id="btn_quote" class="button is-1by1">
+                                    <i class="icon fa fa-quote-left"></i>
+                                </button>
+                            </div>
                         </div>
 
                         <div class="controls">
@@ -97,7 +104,7 @@
                     <p class="title is-4">Preview</p>
                 </div>
                 <div class="control">
-                    <button class="button is-info" onclick="ReloadMarkdown()">Reload</button>
+                    <button class="button is-info" id="btn_reload_preview">Reload</button>
                 </div>
             </div>
         </div>

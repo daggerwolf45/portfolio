@@ -13,7 +13,7 @@ jinja_env = Environment(trim_blocks=True, lstrip_blocks=True, autoescape=True, l
 
 template_engine = Jinja2Templates(env=jinja_env)
 
-jinja_stub_loader = FileSystemLoader(conf.template_dir)
+jinja_stub_loader = FileSystemLoader(conf.stub_dir)
 stub_env = Environment(trim_blocks=True, lstrip_blocks=True, autoescape=True, loader=jinja_stub_loader, enable_async=False)
 
 stub_engine = Jinja2Templates(env=stub_env)
