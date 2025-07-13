@@ -7,6 +7,6 @@ export default function(){
     register_keybinds()
 
     // Save draft when editor updates
-    editor.addEventListener('change', draft.save)
+    editor.textarea.addEventListener('change', draft.save)
 }
 

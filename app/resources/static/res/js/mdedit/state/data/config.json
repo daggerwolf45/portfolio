@@ -1,6 +1,7 @@
 {
   "history": {
-    "size": 1000
+    "size": 1000,
+    "autosave_interval": 2
   },
   "text": {
     "tab": {

@@ -6,7 +6,13 @@ export const register = function () {
     ui.editor.textarea.addEventListener('keydown', handle_keydown)
 }
 
+
+
+let last_key = null
 const handle_keydown = function(e) {
+    last_key = e.key
+    history.queue_autosave()
+
     // Modifier functions
     if (e.ctrlKey) {
         console.log(e.key)
@@ -41,6 +47,10 @@ const handle_keydown = function(e) {
             case 'Escape':
                 ui.editor.textarea.blur()
                 break;
+            case 'Enter':
+                if (last_key !== 'Enter') {
+                    history.progress_history()
+                }
         }
     }
 }

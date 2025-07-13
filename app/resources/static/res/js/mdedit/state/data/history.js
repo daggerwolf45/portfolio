@@ -1,3 +1,4 @@
+export {queue_autosave} from './flow.js'
 import {config as conf} from '../../state.js'
 import {editor} from '../../ui.js'
 import {history_change as change_action} from "./flow.js";
@@ -8,6 +9,8 @@ let _undo = []
 
 
 export function push (update){
+    if (update === "" || update === null) return;
+
     // Not empty
     if (_history.length > 0) {
         // Don't commit identical history
@@ -32,6 +35,10 @@ export function pop () {
         change_action()
         return val;
     } else return '';
+}
+
+export function traversing(){
+    return _undo.length > 0
 }
 
 

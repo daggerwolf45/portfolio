@@ -1,6 +1,6 @@
 import {style, clear} from '../text.js'
 import {preview, editor} from "./elements.js";
-import {history} from '../state.js'
+import {history, draft} from '../state.js'
 
 export const register_buttons = function() {
     register_toolbar()
@@ -30,6 +30,8 @@ const register_toolbar = function() {
 
 export const ReloadPreview = async function(){
     const frame = preview.frame;
+
+    draft.save()
 
     const resp = await fetch('/admin/view/isoblog', {
         method: 'POST',

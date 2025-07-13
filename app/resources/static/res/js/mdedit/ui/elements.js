@@ -3,9 +3,11 @@ export const preview = {
     frame: document.getElementById('preview_frame')
 }
 
-export const editor = {
-    textarea: document.getElementById('editor_textarea'),
-    frame: document.getElementById('editor_frame'),
-    __proto__: document.getElementById('editor')
-}
+export const editor = Object.assign(
+    document.getElementById('editor'),
+    {
+        textarea: document.getElementById('editor_textarea'),
+        frame: document.getElementById('editor_frame')
+    }
+)
 
