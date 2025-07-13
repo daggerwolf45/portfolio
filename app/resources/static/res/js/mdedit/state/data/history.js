@@ -1,8 +1,10 @@
 import {config as conf} from '../../state.js'
 import {editor} from '../../ui.js'
+import {history_change as change_action} from "./flow.js";
 
 const _history = []
 let _undo = []
+
 
 
 export function push (update){
@@ -20,10 +22,15 @@ export function push (update){
     }
 
     _history.push(update);
+    change_action()
 }
+
+
 export function pop () {
     if (_history.length > 0) {
-        return _history.pop();
+        const val = _history.pop()
+        change_action()
+        return val;
     } else return '';
 }
 

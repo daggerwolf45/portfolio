@@ -8,3 +8,4 @@ export const editor = {
     frame: document.getElementById('editor_frame'),
     __proto__: document.getElementById('editor')
 }
+

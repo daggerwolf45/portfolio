@@ -42,3 +42,30 @@ export const ReloadPreview = async function(){
         frame.contentWindow.document.close();
     }
 }
+
+export function UpdateHistobar(val) {
+    //TODO Refactor entire histobar, ui&code
+    const histobar = document.getElementById('histo_progress');
+
+    histobar.value = val;
+    histobar.classList = [];
+    if (val < 25) {
+        histobar.setAttribute('max', '30');
+        histobar.classList.add('progress');
+    } else if (val < 45) {
+        histobar.setAttribute('max', '50');
+        histobar.classList.add('progress', 'is-info');
+    } else if (val < 95) {
+        histobar.setAttribute('max', '100');
+        histobar.classList.add('progress', 'is-link');
+    } else if (val < 190) {
+        histobar.setAttribute('max', '200');
+        histobar.classList.add('progress', 'is-success');
+    } else if (val < 490) {
+        histobar.setAttribute('max', '500');
+        histobar.classList.add('progress', 'is-warning');
+    } else {
+        histobar.setAttribute('max', '1000');
+        histobar.classList.add('progress', 'is-danger');
+    }
+}
