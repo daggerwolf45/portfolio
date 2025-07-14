@@ -37,7 +37,7 @@ export function pop () {
     } else return '';
 }
 
-export function traversing(){
+export function is_traversing(){
     return _undo.length > 0
 }
 

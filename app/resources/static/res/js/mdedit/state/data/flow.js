@@ -1,4 +1,4 @@
-import {_store, progress_history, traversing} from './history.js';
+import {_store, progress_history, is_traversing} from './history.js';
 import {UpdateHistobar} from "../../ui/actions.js";
 import {config} from '../../state.js'
 
@@ -9,7 +9,7 @@ export function history_change(){
 
 let auto_save_id = null;
 function _autosave(save_id){
-    if (!traversing()){
+    if (!is_traversing()){
         progress_history()
     }
     save_id = null

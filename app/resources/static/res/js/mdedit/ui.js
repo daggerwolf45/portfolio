@@ -13,8 +13,6 @@ export const preview = Object.assign(
 )
 
 export const init = function (){
-    action.register_buttons()
-
     document.addEventListener('DOMContentLoaded', function() {
         history.progress_history()
     })
@@ -25,6 +23,8 @@ export const init = function (){
             editor.textarea.value = starting_data;
         }
     })
+
+    action.register_buttons()
 }
 
 

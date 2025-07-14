@@ -5,24 +5,3 @@ data:
     imports:
       editor: "/static/res/js/editor.mjs"
       "editor/": "/static/res/js/editor/"
-
-
-#  {
-#    "imports": {
-#      "editor": f"{conf.static_root}/res/js/editor.mjs",
-#    },
-#    "scopes": {
-#      editor_root: {
-#        "": f"{conf.editor_root}",
-#      }
-#    }
-#  }
-#
-#        "imports": {
-#          "editor": "/static/res/js/editor.mjs"
-#        },
-#        "scopes": {
-#          "js/editor.": "/static/res/js/editor/",
-#          "js/editor/": "/static/res/js/editor/"
-#        }
-#      }

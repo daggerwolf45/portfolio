@@ -13,6 +13,17 @@
             <p class="subtitle">Fancy-pants blog writer</p>
         </div>
         <div class="block">
+            <button id="btn_debug" class="button is-success is-rounded">Click Me!</button>
+            <script>
+                function event_debug(event){
+                    console.log(event)
+                }
+                btn = document.getElementById('btn_debug')
+                btn.addEventListener('click', event_debug)
+                btn.addEventListener('keydown', event_debug)
+            </script>
+        </div>
+        <div class="block">
             <div class="box" id="editor_frame">
                 <div id="editor">
 
