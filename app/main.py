@@ -40,12 +40,11 @@ app.add_middleware(GZipMiddleware)
 
 # Static Files
 app.mount(conf.static_root, StaticFiles(directory=conf.static_dir), name="static")
-editor_dir = f'{conf.static_dir}/res/js/editor'
-app.mount('/res/app/editor', StaticFiles(directory=editor_dir), name="editor")
 
 
 # Base router
 app.include_router(page_router)
 app.include_router(admin_router, prefix="/admin")
 app.include_router(resource_router)
+
 

@@ -1,6 +1,5 @@
 import glob
 import importlib
-import json
 from datetime import datetime
 from os import PathLike
 from pathlib import Path
@@ -9,8 +8,8 @@ from typing import Optional
 import yaml
 from app.config import conf
 from app.md import RenderedMarkdown
-from app.models import Job, LangExperience, Module, ProgLang, SkillCategory
-from app.utils import dump_json, seek_and_parse
+from app.models import Job, LangExperience, Module, SkillCategory
+from app.utils import seek_and_parse
 
 
 
@@ -153,7 +152,7 @@ class ResourceManager:
                     mod_data = dict()
                     for mod_name in page_data['modules']:
                         try:    # Try to import specified module
-                            mod = importlib.import_module(f'app.modules.{mod_name}')
+                            mod = importlib.import_module(f'app.web-modules.{mod_name}')
                         except Exception:
                             print(f'Failed to load module "{mod_name}"')
                             continue
