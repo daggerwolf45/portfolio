@@ -18,9 +18,11 @@ const handle_keydown = function(e) {
         console.log(e.key)
         switch (e.key){
             case 'z':
-                e.preventDefault();
-                history.undo_change()
-                break;
+                if (!e.shiftKey) {
+                    e.preventDefault();
+                    history.undo_change()
+                    break;
+                } // Fallthrough to Ctrl-Y if shift is held
             case 'y':
                 e.preventDefault();
                 history.restore_history()
