@@ -1,49 +1,68 @@
 jobs:
-  - company: {
-      name: "Genuone",
-      url: "https://www.genuone.co"
-      }
+  - company: { name: "FreedomVPN" }
+    start_date: "October/2025"
+    end_date: "March/2026"
+    roles:
+      - title: "Lead Backend Developer & Network Engineer"
+        description: "Designed and wrote internal API. Worked with Founder to architect
+          full software and network infrastructure."
+        details:
+          - text: "Created automated gateway creation and deployment tooling"
+          - text: "Designed and maintained peer management and gateway connection
+              syncing/gateway runtime manager"
+          - text: "Speced and implemented database schema and API data integrity system."
+  - company: { name: "Genuone", url: "https://www.genuone.co" }
     start_date: "Jan/2024"
-    end_date: "Present"
+    end_date: "Sept/2025"
     roles:
       - title: "Technical Founder"
-        description: "Responsible for designing and building core software for Genuone, as well as selecting and designing tools for inter-company collaboration, progress tracking, documentation and resource management."
+        description: "Responsible for designing and building core software for Genuone,
+          as well as selecting and designing tools for inter-company
+          collaboration, progress tracking, documentation and resource
+          management."
         details:
           - text: "Designed anonymous ID verification API from the ground up."
-          - text: "Created integration for cross-site verification without the use of third-party cookies or redirects."
-          - text: "Built geo-spatial userdata system in compliance with global data privacy laws."
-          - text: "Integrated automatic tiered billing system, with support for any currencies. Including manual invoicing for traditional customers."
-          - text: "Setup and maintained CI/CD system with support for compiling and unit testing libraries for all operating systems and most popular languages/frameworks."
+          - text: "Created integration for cross-site verification without the use of
+              third-party cookies or redirects."
+          - text: "Built geo-spatial userdata system in compliance with global data privacy
+              laws."
+          - text: "Integrated automatic tiered billing system, with support for any
+              currencies. Including manual invoicing for traditional customers."
+          - text: "Setup and maintained CI/CD system with support for compiling and unit
+              testing libraries for all operating systems and most popular
+              languages/frameworks."
       - title: "CEO"
         details:
           - text: "Incorporated Genuone Software Inc."
           - text: "Patented anonymous ID verification system."
           - text: "Researched and liaisoned with investors."
           - text: "Interviewed and coordinated with developers."
-          - text: "Designed company branding, including imagery, color and font palettes, and slogans."
+          - text: "Designed company branding, including imagery, color and font palettes,
+              and slogans."
           - text: "Defined corporate ethics and roadmaps for sustainable, long-term growth."
-  - company: {
-      name: "Nextera Robotics",
-      url: "https://nexterarobotics.com/didge-ai"
-      }
+  - company: { name: "Nextera Robotics", url: "https://nexterarobotics.com/didge-ai" }
     start_date: "Jul/2022"
     end_date: "Oct/2023"
     roles:
-      - title: "Infrastructure & Hardware Specialist"
-        description: "I like to say my job at Nextera was wearing every hat that no-one else wanted to, all at once. I oversaw all software and hardware from robot-to-web-server, especially the networking & video pipeline. I also handled all on-board communications, internal IO, and power delivery for our robots."
+      - title: "Backend Developer & Hardware Specialist"
+        description: "I like to say my job at Nextera was wearing every hat that no-one
+          else wanted to, all at once. I oversaw all software and hardware from
+          robot-to-web-server, especially the networking & video pipeline. I
+          also handled all on-board communications, internal IO, and power
+          delivery for our robots."
         details:
-          - text: "<strong>400%</strong> uptime increase, including automated fault recovery system."
+          - text: "<strong>400%</strong> uptime increase, including automated fault recovery
+              system."
           - text: "Developed backend for Robot fleet control portal, and logistics."
           - text: "Automated deployment for all robots and network infrastructure."
-          - text: "Optimized TCP flow control, multi-gateway routing, and Wireguard tunneling to allow for realtime video over erratic and harsh conditions."
+          - text: "Optimized TCP flow control, multi-gateway routing, and Wireguard
+              tunneling to allow for realtime video over erratic and harsh
+              conditions."
           - text: "Designed and oversaw development of the following electronics for Robot."
             sub_detail:
               - text: "PDU and Charging Controller"
               - text: "Managed USB-3 IO & Networking Board"
-  - company: {
-      name: "Boundless Robotics",
-      url: "https://boundlessrobotics.com/"
-      }
+  - company: { name: "Boundless Robotics", url: "https://boundlessrobotics.com/" }
     start_date: "Aug/2023"
     end_date: "Nov/2023"
     roles:
@@ -56,14 +75,11 @@ jobs:
               - text: "Support for easy expandability and test groups."
           - text: "Assisted in FCC certification of wireless radio."
 
-  - company: {
-      name: "New England Chapel",
-      url: "https://nechapel.org"
-      }
+  - company: { name: "New England Chapel", url: "https://nechapel.org" }
     roles:
-      - title: "Systems Administration"
+      - title: "Systems Administration - Contracted"
         start_date: "April/2022"
-        end_date: "May/2022"
+        end_date: "Present"
         details:
           - text: "Planned and oversaw migration from Cisco Meraki to Ubiquiti"
           - text: "Selected and deployed Security camera system"
@@ -79,14 +95,15 @@ jobs:
         details:
           - text: "Planned new and oversaw network deployment for new location"
           - text: "Worked with staff to rebrand and establish modern online presence"
-      - title: "Producer"
+      - title: "Producer - Contracted"
         start_date: "March/2020"
         end_date: "Present"
         details:
           - text: "Produce live church services and recorded classes"
           - text: "Designed and maintain presentation, and streaming software & equipment."
           - text: "Live mixing and scene control"
-          - text: "Monitored livestream & chat interactions from multiple platforms simultaneously"
+          - text: "Monitored livestream & chat interactions from multiple platforms
+              simultaneously"
           - text: "Write and help maintain documentation for church volunteers"
         skills:
           - class: "Software"
@@ -95,5 +112,3 @@ jobs:
               - name: "Twitch"
               - name: "Facebook Live"
               - name: "Youtube"
-
-
