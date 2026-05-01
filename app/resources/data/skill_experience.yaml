@@ -1,11 +1,11 @@
 lang:
   - strong:
-    - name: "Python"
-      icon_name: "python.webp"
-    - name: "Java"
-      icon_name: "java.webp"
-    - name: "Bash"
-      icon_name: "bash.webp"
+      - name: "Python"
+        icon_name: "python.webp"
+      - name: "Java"
+        icon_name: "java.webp"
+      - name: "Bash"
+        icon_name: "bash.webp"
   - moderate:
       - name: "Typescript"
         icon_name: "ts.webp"
@@ -14,7 +14,7 @@ lang:
       - name: "C++"
         icon_name: "cpp.webp"
       - name: "C"
-        icon_name: 'c.webp'
+        icon_name: "c.webp"
   - light:
       - name: "Zig"
         icon_name: "zig.webp"
@@ -35,11 +35,22 @@ tk:
       - name: "Django"
       - name: "React"
   - name: "Web Servers"
+    subtypes:
+      - name: "ASGI/WSGI (Python)"
+        items:
+          - name: "Gunicorn"
+          - name: "Uvicorn"
+          - name: "Flask"
+          - name: "Socketify.py"
     items:
-      - name: "Gunicorn"
-      - name: "Socketify.py"
+      - name: "Node.JS"
       - name: "Nginx"
       - name: "Apache"
+  - name: "Generative AI (LLM)"
+    items:
+      - name: "llama.cpp"
+      - name: "Ollama"
+      - name: "HuggingFace"
   - name: "Runtimes"
     subtypes:
       - name: "Python"
@@ -60,14 +71,32 @@ tk:
       - name: "SQL"
         items:
           - name: "PostgreSQL"
-          - name: "MySQL"
           - name: "SQLite"
+          - name: "GraphQL"
+          - name: "MySQL"
+          - name: "CockroachDB"
           - name: "Apache Derby"
+      - name: "NoSQL"
+        items:
+          - name: "MongoDB"
       - name: "DBMS"
         items:
           - name: "JDBM"
           - name: "SQLAlchemy"
           - name: "SQLModel"
+  - name: "Development"
+    subtypes:
+      - name: "Version control"
+        items:
+          - name: "Git"
+      - name: "CI/CD"
+        items:
+          - name: "Github Actions"
+          - name: "Jenkins"
+      - name: "Development Methodologies"
+        items:
+          - name: "RESTful APIs"
+          - name: "AGILE"
   - name: "Virtualization"
     subtypes:
       - name: "Virtualization"
@@ -80,10 +109,11 @@ tk:
   - name: "Containers"
     items:
       - name: "Docker"
-  - name: "Firewalls"
+  - name: "Firewalls & Routing"
     items:
       - name: "PFSense"
       - name: "OPNSense"
+      - name: "OpenWRT"
   - name: "Embedded Systems"
     items:
       - name: "Arm"
@@ -93,21 +123,21 @@ tk:
       - name: "ESP8266"
   - name: "Wireless Infrastructure"
     subtypes:
-        - name: "Traditional Wifi"
-          items:
-            - name: "Meraki"
-            - name: "Ruckus"
-            - name: "Ubiquity"
-            - name: "OpenWRT"
-        - name: "IOT"
-          items:
-            - name: "Z-Wave"
-            - name: "Zigbee"
-            - name: "Thread"
-        - name: "Remote Mesh"
-          items:
-            - name: "Doodlelabs Mesh Rider"
-              link: "https://doodlelabs.com/products/mesh-rider-radios/"
+      - name: "Traditional Wifi"
+        items:
+          - name: "Meraki"
+          - name: "Ruckus"
+          - name: "Ubiquity"
+          - name: "OpenWRT"
+      - name: "IOT"
+        items:
+          - name: "Z-Wave"
+          - name: "Zigbee"
+          - name: "Thread"
+      - name: "Remote Mesh"
+        items:
+          - name: "Doodlelabs Mesh Rider"
+            link: "https://doodlelabs.com/products/mesh-rider-radios/"
   - name: "Video Processing"
     subtypes:
       - name: "Tools"
@@ -135,10 +165,10 @@ tk:
     subtypes:
       - name: "Linux"
         items:
-        - name: "Ubuntu"
-        - name: "Arch"
-        - name: "Debian"
-        - name: "Alpine"
+          - name: "Ubuntu"
+          - name: "Arch"
+          - name: "Debian"
+          - name: "Alpine"
   - name: "CAD"
     subtypes:
       - name: "PCB Design"
@@ -146,16 +176,14 @@ tk:
           - name: "Altium"
   - name: "Miscellaneous"
     subtypes:
-        - name: "Tools"
-          items:
-            - name: "Git"
-            - name: "Caddy"
-            - name: "Microsoft Office"
-            - name: "Google Workspace"
-            - name: "Anytype"
+      - name: "Tools"
+        items:
+          - name: "Caddy"
+          - name: "Microsoft Office"
+          - name: "Google Workspace"
+          - name: "Anytype"
+          - name: "Node-RED"
+          - name: "I8N"
     items:
       - name: "x86-64 Assembly (AT&T)"
       - name: "Extreme Overclocking"
-
-
-
