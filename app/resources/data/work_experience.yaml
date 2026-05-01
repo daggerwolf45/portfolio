@@ -112,3 +112,20 @@ jobs:
               - name: "Twitch"
               - name: "Facebook Live"
               - name: "Youtube"
+  - company:
+      {
+        name: "Worcester Polytechnic University",
+        url: "https://www.wpi.edu/offices/talent/student-employment/graduate-worker-res\
+          ources/ra-and-ta-job-descriptions",
+      }
+    start_date: "Mar/2022"
+    end_date: "May/2022"
+    roles:
+      - title: "Teaching Assistant"
+        details:
+          - text: "Mentored 12-student teams designing graphical interfaces and pathfinding
+              systems for hospital navigation."
+          - text: "Fostered a problem solving mindset in students to overcome challenges in
+              full stack development and troubleshooting."
+          - text: "Ensured students and teams met professor's goals and criteria including
+              the AGILE software development methodology"
